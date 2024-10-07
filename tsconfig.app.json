@@ -18,7 +18,16 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["./*"],
+      "@app/*": ["./app/*"],
+      "@pages/*": ["./pages/*"],
+      "@shared/*": ["./shared/*"],
+      "@widgets/*": ["./widgets/*"],
+      "@feature/*": ["./feature/*"]
+    }
   },
-  "include": ["src"]
+  "include": ["src", "declaration.d.ts", "vite-env.d.ts"]
 }
