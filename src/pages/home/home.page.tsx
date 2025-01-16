@@ -1,7 +1,3 @@
-import { FC } from 'react';
-
-const HomePage: FC = () => {
+export const HomePage = () => {
   return <></>;
 };
-
-export default HomePage;
