@@ -1,0 +1,28 @@
+.templateDemoContainer {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  &:active .templateDemoTitle {
+    color: var(--active-background);
+  }
+
+  &:hover .templateDemoTitle {
+    color: var(--active-background);
+  }
+
+  .templateDemoTitle {
+    font-family: var(--urbanist-font);
+    color: var(--black-text);
+    font-weight: 600;
+    font-size: 18px;
+    text-align: center;
+    transition: color 0.3s ease;
+  }
+}

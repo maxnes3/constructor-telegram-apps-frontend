@@ -1,0 +1,12 @@
+@use '@shared/styles/variables' as variables;
+@use '@shared/styles/fonts' as fonts;
+@use '@shared/styles/animations' as animations;
+
+body {
+  margin: 0;
+  padding: 0;
+
+  @include variables.init();
+  @include fonts.init();
+  @include animations.init();
+}

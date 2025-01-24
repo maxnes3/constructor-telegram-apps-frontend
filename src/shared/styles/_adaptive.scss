@@ -1,0 +1,11 @@
+@mixin setMediaStyles($min-width, $max-width: null) {
+  @if $max-width == null {
+    @media (min-width: $min-width) {
+      @content;
+    }
+  } @else {
+    @media (min-width: $min-width) and (max-width: $max-width) {
+      @content;
+    }
+  }
+}

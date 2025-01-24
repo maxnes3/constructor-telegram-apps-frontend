@@ -1,0 +1,20 @@
+.categorySwitchContainer {
+  display: flex;
+  background-color: var(--gray-background);
+  justify-content: center;
+  align-items: center;
+  padding: 4px 0;
+  width: 100%;
+
+  .categorySwitchContent {
+    display: inline-block;
+    background-color: var(--white-background);
+    box-shadow: var(--component-shadow);
+    border-radius: 22px;
+    padding: 4px;
+
+    .categorySwitchButton {
+      font-size: 18px;
+    }
+  }
+}

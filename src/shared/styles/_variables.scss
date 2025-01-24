@@ -1,0 +1,18 @@
+@mixin init() {
+  --white-text: #fff;
+  --black-text: #000;
+  --gray-text: #A9A9A9;
+  --active-text: #007aff;
+
+  --white-background: #fff;
+  --gray-background: #D9D9D9;
+  --active-background: #007aff;
+  --active-background-hover: #005bb5;
+  --active-background-light: #87cefa;
+  --active-gradient-background: linear-gradient(135deg, #005bb5, #007aff, #87cefa);
+
+  --component-shadow: 0 2px 5px rgba(0, 0, 0, 0.1),
+    0px 1px 3px rgba(0, 0, 0, 0.08);
+  --component-shadow-hover: 0px 4px 6px rgba(0, 0, 0, 0.1),
+    0px 8px 15px rgba(0, 0, 0, 0.2);
+}

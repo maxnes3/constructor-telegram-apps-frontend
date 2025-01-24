@@ -25,6 +25,7 @@ export default defineConfig({
       '@shared': path.resolve(__dirname, 'src/shared'),
       '@widgets': path.resolve(__dirname, 'src/widgets'),
       '@feature': path.resolve(__dirname, 'src/feature'),
+      '@entities': path.resolve(__dirname, 'src/entities'),
     },
   },
   assetsInclude: ['**/*.ttf'],

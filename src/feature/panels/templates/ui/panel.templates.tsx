@@ -1,10 +1,14 @@
-import { FC } from 'react';
+import { ToggleButton } from './toggle.module';
+import { CategorySwitch } from './category.module';
+import { TemplatesList } from './templates.module';
 import classes from './styles.module.scss';
 
-type PanelWithTemplatesProps = {
-  templates?: undefined;
-};
-
-export const PanelWithTemplates: FC<PanelWithTemplatesProps> = () => {
-  return <div className={classes.panelWithTemplates}></div>;
+export const PanelWithTemplates = () => {
+  return (
+    <div className={classes.panelWithTemplates}>
+      <ToggleButton />
+      <CategorySwitch />
+      <TemplatesList />
+    </div>
+  );
 };

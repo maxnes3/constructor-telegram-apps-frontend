@@ -1,3 +1,33 @@
-.panelProject {
+@use "@shared/styles/adaptive" as adaptive;
 
+.panelProjectContainer {
+  display: flex;
+  flex-direction: row;
+  padding: 12px 12px 0;
+
+  @include adaptive.setMediaStyles(1px, 767px) {
+    justify-content: center;
+  }
+
+  @include adaptive.setMediaStyles(768px) {
+    justify-content: flex-end;
+  }
+
+  .panelProjectControll {
+    display: inline-block;
+    background-color: var(--gray-background);
+    border-radius: 24px;
+    padding: 4px;
+
+    .panelProjectContent {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      background-color: var(--white-background);
+      box-shadow: var(--component-shadow);
+      border-radius: 20px;
+      padding: 4px;
+      gap: 12px;
+    }
+  }
 }

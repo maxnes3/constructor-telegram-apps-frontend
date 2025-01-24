@@ -1,0 +1,1 @@
+export { getIsInsidePrototype } from './getIsInsidePrototype';

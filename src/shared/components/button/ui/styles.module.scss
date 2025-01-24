@@ -1,0 +1,38 @@
+.buttonComponent {
+  font-family: var(--urbanist-font);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.default {
+  background-color: var(--white-background);
+  box-shadow: var(--component-shadow);
+  color: var(--black-text);
+  border-radius: 20px;
+}
+
+.active {
+  background: var(--active-gradient-background);
+  box-shadow: var(--component-shadow);
+  color: var(--white-text);
+  animation: var(--gradient-animation);
+  border-radius: 20px;
+
+  &:hover {
+    background-color: var(--active-background-hover);
+    box-shadow: var(--component-shadow-hover);
+  }
+}
+
+.transparent {
+  background-color: transparent;
+  color: var(--black-text);
+}

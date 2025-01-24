@@ -1,0 +1,13 @@
+.inputComponent {
+  font-family: var(--urbanist-font);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+
+  &::placeholder {
+    color: #808080;
+  }
+}

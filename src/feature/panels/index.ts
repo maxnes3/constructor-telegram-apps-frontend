@@ -1,2 +1,2 @@
-export { PanelProject } from './project';
+export { PanelProjectControll } from './project';
 export { PanelWithTemplates } from './templates';

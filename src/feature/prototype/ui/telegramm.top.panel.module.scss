@@ -1,0 +1,39 @@
+.telegrammTopPanelContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 4px 8px;
+  font-family: var(--roboto-font);
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--active-background);
+
+  .telegrammCancel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 48px;
+  }
+
+  .telegrammMiniApp {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--black-text);
+
+    .telegrammMiniAppName {
+      font-weight: 600;
+    }
+
+    .telegrammBot {
+      color: var(--gray-text);
+    }
+  }
+
+  .telegrammSettingsIcon {
+    margin: 0 0 0 24px;
+    width: 24px;
+  }
+}

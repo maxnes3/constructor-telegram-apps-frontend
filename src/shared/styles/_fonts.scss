@@ -1,0 +1,32 @@
+@mixin init() {
+    @font-face {
+        font-family: 'Urbanist';
+        src: url('../assets/fonts/Urbanist-Regular.ttf') format('truetype');
+        font-style: normal;
+        font-weight: 500;
+    }
+
+    @font-face {
+        font-family: 'Urbanist';
+        src: url('../assets/fonts/Urbanist-SemiBold.ttf') format('truetype');
+        font-style: normal;
+        font-weight: 600;
+    }
+
+    @font-face {
+        font-family: 'Roboto';
+        src: url('../assets/fonts/Roboto-Regular.ttf') format('truetype');
+        font-style: normal;
+        font-weight: 400;
+    }
+
+    @font-face {
+        font-family: 'Roboto';
+        src: url('../assets/fonts/Roboto-SemiBold.ttf') format('truetype');
+        font-style: normal;
+        font-weight: 600;
+    }
+
+    --urbanist-font: 'Urbanist', sans-serif;
+    --roboto-font: 'Roboto', sans-serif;
+}

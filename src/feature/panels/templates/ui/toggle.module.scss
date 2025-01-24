@@ -1,0 +1,25 @@
+.toggleButtonContainer {
+  display: flex;
+  justify-content: center;
+
+  .toggleButtonContent {
+    display: inline-block;
+    background-color: var(--gray-background);
+    border-radius: 24px 24px 0 0;
+    padding: 4px 4px 0;
+
+    .toggleButton {
+      border-radius: 20px 20px 0 0;
+      width: 132px;
+      height: 36px;
+
+      .toggleArrowIcon {
+        transition: transform 0.3s ease;
+      }
+    }
+  }
+}
+
+.showTemplates {
+    transform: rotateX(180deg);
+}
