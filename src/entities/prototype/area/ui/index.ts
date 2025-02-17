@@ -1,0 +1,1 @@
+export { PrototypeLayoutArea } from './prototypeLayoutArea';

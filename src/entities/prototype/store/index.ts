@@ -1,0 +1,1 @@
+export { usePrototypeStore } from './usePrototypeStore';

@@ -1,0 +1,1 @@
+export { usePrototypeAreaBehavior } from './usePrototypeAreaBehavior';

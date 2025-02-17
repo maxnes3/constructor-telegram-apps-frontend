@@ -1,2 +1,1 @@
-export { PanelProjectControll } from './project';
-export { PanelWithTemplates } from './templates';
+export { TogglePanel } from './toggle';

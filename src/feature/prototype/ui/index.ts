@@ -1,1 +1,1 @@
-export { Prototype } from './prototype';
+export { PrototypeLayout } from './prototypeLayout';

@@ -1,0 +1,1 @@
+export { TemplatePrototype } from './templatePrototype';

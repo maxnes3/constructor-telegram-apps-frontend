@@ -1,0 +1,1 @@
+export { useCategoriesStore } from './useCategoriesStore';

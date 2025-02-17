@@ -1,0 +1,1 @@
+export { useTemplatesQuery } from './useTemplatesQuery';

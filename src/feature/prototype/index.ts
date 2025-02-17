@@ -1,1 +1,1 @@
-export { Prototype } from './ui';
+export { PrototypeLayout } from './ui';

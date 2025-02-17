@@ -1,2 +1,2 @@
-export { TemplateDemo } from './demo';
-export { TemplatePrototype } from './prototype';
+export { useTemplatesQuery } from './api';
+export { useTemplatesAtPrototype, useTemplatesListBehavior } from './model';
