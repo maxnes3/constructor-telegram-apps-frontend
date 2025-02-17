@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import classes from './styles.module.scss';
-import { usePrototypeAreaBehavior } from '../model';
+import { usePrototypeAreaBehavior } from '../../model';
 
 export const PrototypeLayoutArea = () => {
   const { isOverPrototype, positionBehaviour } = usePrototypeAreaBehavior();

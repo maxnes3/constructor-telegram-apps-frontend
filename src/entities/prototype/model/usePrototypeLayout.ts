@@ -1,4 +1,4 @@
-import { usePrototypeStore } from '../../store';
+import { usePrototypeStore } from '../store';
 
 export const usePrototypeLayout = () => {
   const { isScaledPrototype, setIsScaledPrototype } = usePrototypeStore();

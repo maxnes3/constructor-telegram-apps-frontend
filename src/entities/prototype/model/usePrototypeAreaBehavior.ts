@@ -1,4 +1,4 @@
-import { usePrototypeStore } from '../../store';
+import { usePrototypeStore } from '../store';
 
 export const usePrototypeAreaBehavior = () => {
   const {

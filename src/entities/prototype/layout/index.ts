@@ -1,1 +1,0 @@
-export { usePrototypeLayout } from './model';

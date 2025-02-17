@@ -1,3 +1,3 @@
-export { usePrototypeAreaBehavior, PrototypeLayoutArea } from './area';
-export { usePrototypeLayout } from './layout';
+export { PrototypeLayoutArea } from './area';
+export { usePrototypeAreaBehavior, usePrototypeLayout } from './model';
 export { TelegrammTopPanel } from './telegramTopPanel';
