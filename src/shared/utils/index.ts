@@ -1,1 +1,1 @@
-export { createHandleQueryFn } from './api';
+export { createHandleQueryFn } from './apiUtils';

@@ -1,1 +1,1 @@
-export { PanelProjectControll } from './panelControll';
+export { PanelProjectControll } from './ui';

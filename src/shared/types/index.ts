@@ -1,5 +1,5 @@
-export type { CategoryType, BuildType, TemplateType } from './template.types';
-export type { PrototypeType } from './prototype.types';
-export type { ProjectRequestType } from './project.types';
-export { RoutesPath } from './routes.types';
-export { PROTOTYPE_ID } from './prototype.types';
+export type { CategoryType, BuildType, TemplateType } from './templateTypes';
+export type { PrototypeType } from './prototypeTypes';
+export type { ProjectRequestType } from './projectTypes';
+export { RoutesPath } from './routesTypes';
+export { PROTOTYPE_ID } from './prototypeTypes';

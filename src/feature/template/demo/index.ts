@@ -1,1 +1,0 @@
-export { TemplateDemo } from './ui';

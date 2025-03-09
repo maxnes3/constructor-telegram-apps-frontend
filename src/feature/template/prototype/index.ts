@@ -1,1 +1,0 @@
-export { TemplatePrototype } from './ui';

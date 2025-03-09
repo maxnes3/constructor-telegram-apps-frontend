@@ -1,1 +1,0 @@
-export { TelegrammTopPanel } from './telegramTopPanel';

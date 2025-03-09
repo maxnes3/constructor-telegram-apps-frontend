@@ -1,1 +1,0 @@
-export { PrototypeLayoutArea } from './ui';

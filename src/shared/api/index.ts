@@ -1,2 +1,2 @@
-export { CategoryService } from './category.service';
-export { TemplateService } from './template.service';
+export { CategoryService } from './categoryService';
+export { TemplateService } from './templateService';

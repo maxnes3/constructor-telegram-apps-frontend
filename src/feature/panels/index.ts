@@ -1,1 +1,1 @@
-export { TogglePanel } from './toggle';
+export { TogglePanel } from './ui';

@@ -1,1 +1,0 @@
-export { CategorySwitch } from './categorySwitch';

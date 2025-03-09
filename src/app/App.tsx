@@ -8,7 +8,7 @@ const App: FC = () => {
     <BrowserRouter>
       <Routes>
         {routes.map((route) => (
-          <Route {...route} key={route.path} />
+          <Route {...route} />
         ))}
       </Routes>
     </BrowserRouter>

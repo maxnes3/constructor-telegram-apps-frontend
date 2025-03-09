@@ -3,6 +3,14 @@ import { ConstructorPage } from '@pages/constructor';
 import { HomePage } from '@pages/home';
 
 export const routes = [
-  { path: RoutesPath.HOME, element: <HomePage /> },
-  { path: RoutesPath.CONSTRUCTOR, element: <ConstructorPage /> },
+  {
+    key: RoutesPath.HOME,
+    path: RoutesPath.HOME,
+    element: <HomePage />,
+  },
+  {
+    key: RoutesPath.CONSTRUCTOR,
+    path: RoutesPath.CONSTRUCTOR,
+    element: <ConstructorPage />,
+  },
 ];
