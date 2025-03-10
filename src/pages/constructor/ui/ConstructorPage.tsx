@@ -1,12 +1,12 @@
 import { Prototype } from '@widgets/prototype';
-import { PanelProjectControll } from '@/feature/project';
-import { PanelWithTemplates } from '@/widgets/template';
+import { PanelWithTemplates } from '@widgets/template';
+import { ProjectControll } from '@/widgets/project';
 import classes from './styles.module.scss';
 
 export const ConstructorPage = () => {
   return (
     <div className={classes.constructorPage}>
-      <PanelProjectControll />
+      <ProjectControll />
       <Prototype />
       <PanelWithTemplates />
     </div>

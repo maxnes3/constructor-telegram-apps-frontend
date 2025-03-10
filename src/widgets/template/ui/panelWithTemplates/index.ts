@@ -1,1 +1,1 @@
-export { PanelWithTemplates } from './panelWithTemplates';
+export { PanelWithTemplates } from './PanelWithTemplates';

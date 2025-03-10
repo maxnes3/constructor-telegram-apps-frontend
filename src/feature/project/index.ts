@@ -1,1 +1,1 @@
-export { PanelProjectControll } from './ui';
+export { PanelProjectData, PanelProjectMode } from './ui';

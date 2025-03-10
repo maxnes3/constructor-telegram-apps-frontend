@@ -5,7 +5,7 @@ import { useProjectConfig } from '@/entities/project';
 import { useTemplatesAtPrototype } from '@/entities/template';
 import classes from './styles.module.scss';
 
-export const PanelProjectControll = () => {
+export const PanelProjectData = () => {
   const { projectName, handleSetProjectName } = useProjectConfig();
   const { templatesAtPrototype } = useTemplatesAtPrototype();
   const { handleDownloadProject } = useProjectQuery();
@@ -20,7 +20,7 @@ export const PanelProjectControll = () => {
 
   return (
     <div className={classes.panelProjectContainer}>
-      <div className={classes.panelProjectControll}>
+      <div className={classes.panelProjectData}>
         <div className={classes.panelProjectContent}>
           <Input
             value={projectName}

@@ -1,1 +1,1 @@
-export { Prototype } from './prototype';
+export { Prototype } from './Prototype';

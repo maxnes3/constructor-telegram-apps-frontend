@@ -15,6 +15,7 @@
   flex-direction: column;
   width: var(--start-width);
   height: var(--start-height);
+  background-color: var(--white-background);
   outline: var(--border-width) solid var(--gray-background);
   border-radius: var(--border-radius);
   box-shadow: var(--component-shadow);
