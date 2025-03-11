@@ -1,1 +1,1 @@
-export { TemplateDemo, ListWithTemplatesDemo, TemplatePrototype } from './ui';
+export { TemplateDemo, TemplatesDemoList } from './ui';

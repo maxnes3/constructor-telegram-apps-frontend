@@ -1,1 +1,1 @@
-export { PanelWithTemplates } from './ui';
+export { TemplatesControll } from './ui';

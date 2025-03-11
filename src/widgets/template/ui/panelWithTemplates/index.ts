@@ -1,1 +1,0 @@
-export { PanelWithTemplates } from './PanelWithTemplates';

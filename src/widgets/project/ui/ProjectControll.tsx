@@ -1,11 +1,14 @@
-import { PanelProjectData, PanelProjectMode } from '@feature/project';
+import {
+  ProjectChangeDataPanel,
+  ProjectSwitchModePanel,
+} from '@feature/project';
 import classes from './styles.module.scss';
 
 export const ProjectControll = () => {
   return (
     <div className={classes.projectControll}>
-      <PanelProjectData />
-      <PanelProjectMode />
+      <ProjectChangeDataPanel />
+      <ProjectSwitchModePanel />
     </div>
   );
 };

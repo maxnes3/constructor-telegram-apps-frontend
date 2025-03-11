@@ -1,1 +1,1 @@
-export { Prototype } from './Prototype';
+export { PrototypeControll } from './PrototypeControll';

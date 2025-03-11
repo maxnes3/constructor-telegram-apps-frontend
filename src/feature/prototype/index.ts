@@ -1,1 +1,5 @@
-export { PrototypeLayout } from './ui';
+export {
+  PrototypeDevelopLayout,
+  PrototypeRunningLayout,
+  PrototypeTelegramTopPanel,
+} from './ui';

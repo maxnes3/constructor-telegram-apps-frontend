@@ -8,7 +8,7 @@ export const useTemplatesQuery = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
 
-  const handleGetAllTemplates = createHandleQueryFn({
+  const getAllTemplates = createHandleQueryFn({
     queryFn: TemplateService.getAllTemplatesQueryFn,
     setData: setTemplates,
     setError,
@@ -19,6 +19,6 @@ export const useTemplatesQuery = () => {
     templates,
     isLoading,
     error,
-    handleGetAllTemplates,
+    getAllTemplates,
   };
 };

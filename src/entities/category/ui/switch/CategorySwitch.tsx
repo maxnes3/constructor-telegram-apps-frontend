@@ -1,15 +1,15 @@
 import { useEffect } from 'react';
 import { Button } from '@shared/components';
-import { useCategoriesQuery } from '../../api';
-import { useCurrentCategory } from '../../model';
+import { useCategoriesQuery } from '@entities/category/api';
+import { useCurrentCategory } from '@entities/category/model';
 import classes from './styles.module.scss';
 
 export const CategorySwitch = () => {
-  const { categories, handleGetAllCategories } = useCategoriesQuery();
-  const { currentCategory, handleSwitchCategory } = useCurrentCategory();
+  const { categories, getAllCategories } = useCategoriesQuery();
+  const { currentCategory, switchCurrentCategory } = useCurrentCategory();
 
   useEffect(() => {
-    handleGetAllCategories();
+    getAllCategories();
   }, []);
 
   return (
@@ -20,7 +20,7 @@ export const CategorySwitch = () => {
             key={item.id}
             mode={currentCategory === item.id ? 'active' : 'transparent'}
             customClassNames={classes.categorySwitchButton}
-            onClick={() => handleSwitchCategory(item.id)}
+            onClick={() => switchCurrentCategory(item.id)}
           >
             {item.name}
           </Button>

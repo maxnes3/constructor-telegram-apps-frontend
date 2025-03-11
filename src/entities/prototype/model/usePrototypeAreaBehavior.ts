@@ -8,18 +8,18 @@ export const usePrototypeAreaBehavior = () => {
     setPositionBehaviour,
   } = usePrototypeStore();
 
-  const handleSetIsOverPrototype = (newValue: boolean) => {
+  const switchIsOverPrototype = (newValue: boolean) => {
     setIsOverPrototype(newValue);
   };
 
-  const handleSetPositionBehaviour = (newValue: string | null) => {
+  const changePositionBehaviour = (newValue: string | null) => {
     setPositionBehaviour(newValue);
   };
 
   return {
     isOverPrototype,
     positionBehaviour,
-    handleSetIsOverPrototype,
-    handleSetPositionBehaviour,
+    switchIsOverPrototype,
+    changePositionBehaviour,
   };
 };

@@ -1,11 +1,10 @@
 import { SettingsIcon } from '@shared/assets/icons';
+import { useProjectConfig } from '@entities/project';
 import classes from './styles.module.scss';
 
-type TelegrammTopPanelPros = {
-  projectName: string;
-};
+export const PrototypeTelegramTopPanel = () => {
+  const { projectName } = useProjectConfig();
 
-export const TelegrammTopPanel = ({ projectName }: TelegrammTopPanelPros) => {
   return (
     <div className={classes.telegrammTopPanelContainer}>
       <span className={classes.telegrammCancel}>Cancel</span>

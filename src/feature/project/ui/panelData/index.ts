@@ -1,1 +1,0 @@
-export { PanelProjectData } from './PanelProjectData';

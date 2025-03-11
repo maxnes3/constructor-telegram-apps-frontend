@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { LayoutRouteProps } from 'react-router-dom';
 import classes from './styles.module.scss';
-import classNames from 'classnames';
+import cn from 'classnames';
 
 type ButtonProps = {
   mode?: 'default' | 'active' | 'transparent';
@@ -17,7 +17,7 @@ export const Button: FC<ButtonProps> = ({
   customClassNames,
   children,
 }) => {
-  const buttonClassName = classNames(
+  const buttonClassName = cn(
     classes.buttonComponent,
     classes[mode],
     customClassNames,

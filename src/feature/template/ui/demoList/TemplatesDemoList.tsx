@@ -1,15 +1,15 @@
-import { TemplateDemo } from '@/feature/template';
+import { TemplateDemo } from '@feature/template';
 import { useEffect, useMemo } from 'react';
 import {
   useTemplatesListBehavior,
   useTemplatesQuery,
-} from '@/entities/template';
-import { useCurrentCategory } from '@/entities/category';
+} from '@entities/template';
+import { useCurrentCategory } from '@entities/category';
 import classes from './styles.module.scss';
 
-export const ListWithTemplatesDemo = () => {
+export const TemplatesDemoList = () => {
   const { currentCategory } = useCurrentCategory();
-  const { templates, handleGetAllTemplates } = useTemplatesQuery();
+  const { templates, getAllTemplates } = useTemplatesQuery();
   const { showTemplatesOnPanel } = useTemplatesListBehavior();
 
   const templatesByCategory = useMemo(
@@ -23,7 +23,7 @@ export const ListWithTemplatesDemo = () => {
   ));
 
   useEffect(() => {
-    handleGetAllTemplates();
+    getAllTemplates();
   }, []);
 
   if (!templates.length) {
@@ -32,8 +32,8 @@ export const ListWithTemplatesDemo = () => {
 
   return (
     showTemplatesOnPanel && (
-      <div className={classes.templatesListContainer}>
-        <ul className={classes.templatesListContent}>
+      <div className={classes.templatesDemoList}>
+        <ul className={classes.templatesDemoListContent}>
           {templatesByCategoryRender}
         </ul>
       </div>

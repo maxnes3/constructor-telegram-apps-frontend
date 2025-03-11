@@ -1,7 +1,7 @@
 import { FC, useRef, useEffect, useState, CSSProperties } from 'react';
-import classes from './styles.module.scss';
 import { SwitchOptionType } from '../model';
-import classNames from 'classnames';
+import cn from 'classnames';
+import classes from './styles.module.scss';
 
 type SwitchProps = {
   options: SwitchOptionType[];
@@ -38,7 +38,7 @@ export const Switch: FC<SwitchProps> = ({
       {options.map((option) => (
         <div
           key={option.value}
-          className={classNames(classes.option, {
+          className={cn(classes.option, {
             [classes.default]: option.value !== current,
             [classes.active]: option.value === current,
           })}

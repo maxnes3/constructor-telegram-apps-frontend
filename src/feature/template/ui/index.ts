@@ -1,3 +1,2 @@
 export { TemplateDemo } from './demo';
-export { ListWithTemplatesDemo } from './listWithDemo';
-export { TemplatePrototype } from './prototype';
+export { TemplatesDemoList } from './demoList';

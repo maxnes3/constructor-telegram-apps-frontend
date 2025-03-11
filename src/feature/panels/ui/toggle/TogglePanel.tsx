@@ -2,22 +2,21 @@ import { Button } from '@shared/components';
 import { ArrowIcon } from '@shared/assets/icons';
 import { usePrototypeLayout } from '@/entities/prototype';
 import { useTemplatesListBehavior } from '@/entities/template';
-import classNames from 'classnames';
+import cn from 'classnames';
 import classes from './styles.module.scss';
 
 export const TogglePanel = () => {
-  const { showTemplatesOnPanel, handleSetShowTemplatesOnPanel } =
+  const { showTemplatesOnPanel, switchShowTemplatesOnPanel } =
     useTemplatesListBehavior();
 
-  const { isScaledPrototype, handleSetIsScaledPrototype } =
-    usePrototypeLayout();
+  const { isScaledPrototype, switchIsScaledPrototype } = usePrototypeLayout();
 
   const handleTogglePanel = () => {
-    handleSetShowTemplatesOnPanel(!showTemplatesOnPanel);
-    handleSetIsScaledPrototype(!isScaledPrototype);
+    switchShowTemplatesOnPanel(!showTemplatesOnPanel);
+    switchIsScaledPrototype(!isScaledPrototype);
   };
 
-  const arrowIconClassNames = classNames(classes.toggleArrowIcon, {
+  const arrowIconClassNames = cn(classes.toggleArrowIcon, {
     [classes.showTemplates]: showTemplatesOnPanel,
   });
 

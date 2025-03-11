@@ -3,9 +3,9 @@ import { useProjectStore } from '../store/useProjectStore';
 export const useProjectConfig = () => {
   const { projectName, setProjectName } = useProjectStore();
 
-  const handleSetProjectName = (newValue: string) => {
+  const changeProjectName = (newValue: string) => {
     setProjectName(newValue);
   };
 
-  return { projectName, handleSetProjectName };
+  return { projectName, changeProjectName };
 };

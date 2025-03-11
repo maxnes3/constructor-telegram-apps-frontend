@@ -8,7 +8,7 @@ export const useCategoriesQuery = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
 
-  const handleGetAllCategories = createHandleQueryFn({
+  const getAllCategories = createHandleQueryFn({
     queryFn: CategoryService.getAllCategoriesQueryFn,
     setData: setCategories,
     setIsLoading,
@@ -19,6 +19,6 @@ export const useCategoriesQuery = () => {
     categories,
     isLoading,
     error,
-    handleGetAllCategories,
+    getAllCategories,
   };
 };

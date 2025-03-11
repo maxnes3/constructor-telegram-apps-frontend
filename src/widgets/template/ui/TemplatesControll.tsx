@@ -1,14 +1,14 @@
 import { CategorySwitch } from '@entities/category';
-import { ListWithTemplatesDemo } from '@feature/template';
+import { TemplatesDemoList } from '@feature/template';
 import { TogglePanel } from '@/feature/panels';
 import classes from './styles.module.scss';
 
-export const PanelWithTemplates = () => {
+export const TemplatesControll = () => {
   return (
-    <div className={classes.panelWithTemplates}>
+    <div className={classes.templatesControll}>
       <TogglePanel />
       <CategorySwitch />
-      <ListWithTemplatesDemo />
+      <TemplatesDemoList />
     </div>
   );
 };

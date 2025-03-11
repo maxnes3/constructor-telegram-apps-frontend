@@ -3,9 +3,9 @@ import { useCategoriesStore } from '../store';
 export const useCurrentCategory = () => {
   const { currentCategory, setCurrentCategory } = useCategoriesStore();
 
-  const handleSwitchCategory = (newCategory: string) => {
+  const switchCurrentCategory = (newCategory: string) => {
     setCurrentCategory(newCategory);
   };
 
-  return { currentCategory, handleSwitchCategory };
+  return { currentCategory, switchCurrentCategory };
 };

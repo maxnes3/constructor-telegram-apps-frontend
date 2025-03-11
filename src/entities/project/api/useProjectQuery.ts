@@ -34,9 +34,9 @@ export const useProjectQuery = () => {
     },
   });
 
-  const handleDownloadProject = (data: ProjectRequestType) => {
+  const downloadProject = (data: ProjectRequestType) => {
     mutation.mutate(data);
   };
 
-  return { handleDownloadProject, ...mutation };
+  return { downloadProject, ...mutation };
 };

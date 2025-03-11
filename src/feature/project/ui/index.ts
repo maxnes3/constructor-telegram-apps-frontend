@@ -1,2 +1,2 @@
-export { PanelProjectData } from './panelData';
-export { PanelProjectMode } from './panelMode';
+export { ProjectChangeDataPanel } from './changeDataPanel';
+export { ProjectSwitchModePanel } from './switchModePanel';
