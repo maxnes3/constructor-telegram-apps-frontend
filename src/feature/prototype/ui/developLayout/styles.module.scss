@@ -1,9 +1,9 @@
 .prototypeDevelopLayout {
-  position: relative;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(1fr, 3);
   overflow-y: auto;
   scrollbar-width: none;
   width: 100%;
   height: 100%;
+  animation: var(--scaleup-animation);
 }

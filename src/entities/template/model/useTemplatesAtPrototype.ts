@@ -1,4 +1,4 @@
-import { TemplateType } from '@/shared/types';
+import { TemplateType } from '@shared/types';
 import { useTemplatesStore } from '../store';
 
 export const useTemplatesAtPrototype = () => {
@@ -8,5 +8,15 @@ export const useTemplatesAtPrototype = () => {
     setTemplateAtPrototype([...templatesAtPrototype, newTemplate]);
   };
 
-  return { templatesAtPrototype, addTemplateAtPrototype };
+  const removeTemplateFromPrototype = (removedId: TemplateType['id']) => {
+    setTemplateAtPrototype(
+      templatesAtPrototype.filter((template) => template.id !== removedId),
+    );
+  };
+
+  return {
+    templatesAtPrototype,
+    addTemplateAtPrototype,
+    removeTemplateFromPrototype,
+  };
 };

@@ -9,4 +9,6 @@ body {
   @include variables.inject();
   @include fonts.inject();
   @include animations.inject();
+
+  font-family: var(--urbanist-font);
 }

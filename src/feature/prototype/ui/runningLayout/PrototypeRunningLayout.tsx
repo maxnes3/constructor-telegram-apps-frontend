@@ -9,7 +9,7 @@ export const PrototypeRunningLayout = () => {
   const templatesAtPrototypeRender =
     templatesAtPrototype.length > 0 &&
     templatesAtPrototype.map((template) => (
-      <TemplateRenderer key={template.id} template={template} />
+      <TemplateRenderer key={template.id} buildTemplate={template.prototype} />
     ));
 
   return (

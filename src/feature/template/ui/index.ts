@@ -1,2 +1,2 @@
-export { TemplateDemo } from './demo';
-export { TemplatesDemoList } from './demoList';
+export { TemplateDraggable } from './draggable';
+export { TemplatesDraggableList } from './draggableList';

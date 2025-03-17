@@ -1,18 +1,17 @@
 import { FC, useState } from 'react';
 import Draggable, { DraggableEvent } from 'react-draggable';
 import { TemplateType } from '@shared/types';
-import { Renderer } from '@shared/components';
 import { getIsInsidePrototype } from '@feature/template/model';
 import { usePrototypeAreaBehavior } from '@entities/prototype';
-import { useTemplatesAtPrototype } from '@entities/template';
+import { TemplateRenderer, useTemplatesAtPrototype } from '@entities/template';
 import { useProjectMode } from '@entities/project';
 import classes from './styles.module.scss';
 
-type TemplateDemoProps = {
+type TemplateDraggableProps = {
   template: TemplateType;
 };
 
-export const TemplateDemo: FC<TemplateDemoProps> = ({ template }) => {
+export const TemplateDraggable: FC<TemplateDraggableProps> = ({ template }) => {
   const { name, demo, positionBehaviour } = template;
   const [templatePosition, setTemplatePosition] = useState({ x: 0, y: 0 });
   const { switchIsOverPrototype, changePositionBehaviour } =
@@ -47,7 +46,7 @@ export const TemplateDemo: FC<TemplateDemoProps> = ({ template }) => {
       onStop={handleOnStop}
     >
       <div className={classes.templateDemoContainer}>
-        <Renderer html={demo.html} css={demo.css} />
+        <TemplateRenderer buildTemplate={demo} />
         <span className={classes.templateDemoTitle}>{name}</span>
       </div>
     </Draggable>

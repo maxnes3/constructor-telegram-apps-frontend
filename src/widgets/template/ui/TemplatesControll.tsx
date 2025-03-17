@@ -1,5 +1,5 @@
 import { CategorySwitch } from '@entities/category';
-import { TemplatesDemoList } from '@feature/template';
+import { TemplatesDraggableList } from '@feature/template';
 import { TogglePanel } from '@/feature/panels';
 import classes from './styles.module.scss';
 
@@ -8,7 +8,7 @@ export const TemplatesControll = () => {
     <div className={classes.templatesControll}>
       <TogglePanel />
       <CategorySwitch />
-      <TemplatesDemoList />
+      <TemplatesDraggableList />
     </div>
   );
 };

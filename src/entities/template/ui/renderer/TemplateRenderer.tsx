@@ -1,12 +1,14 @@
 import { FC } from 'react';
-import { TemplateType } from '@shared/types';
+import { BuildType } from '@shared/types';
 import { Renderer } from '@shared/components';
 
 type TemplateRendererProps = {
-  template: TemplateType;
+  buildTemplate: Omit<BuildType, 'id'>;
 };
 
-export const TemplateRenderer: FC<TemplateRendererProps> = ({ template }) => {
-  const { prototype } = template;
-  return <Renderer html={prototype.html} css={prototype.css} />;
+export const TemplateRenderer: FC<TemplateRendererProps> = ({
+  buildTemplate,
+}) => {
+  const { html, css } = buildTemplate;
+  return <Renderer html={html} css={css} />;
 };

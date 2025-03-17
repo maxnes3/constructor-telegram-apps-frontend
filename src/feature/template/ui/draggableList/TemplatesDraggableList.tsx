@@ -1,4 +1,4 @@
-import { TemplateDemo } from '@feature/template';
+import { TemplateDraggable } from '@feature/template';
 import { useEffect, useMemo } from 'react';
 import {
   useTemplatesListBehavior,
@@ -7,7 +7,7 @@ import {
 import { useCurrentCategory } from '@entities/category';
 import classes from './styles.module.scss';
 
-export const TemplatesDemoList = () => {
+export const TemplatesDraggableList = () => {
   const { currentCategory } = useCurrentCategory();
   const { templates, getAllTemplates } = useTemplatesQuery();
   const { showTemplatesOnPanel } = useTemplatesListBehavior();
@@ -19,7 +19,7 @@ export const TemplatesDemoList = () => {
   );
 
   const templatesByCategoryRender = templatesByCategory.map((template) => (
-    <TemplateDemo key={template.id} template={template} />
+    <TemplateDraggable key={template.id} template={template} />
   ));
 
   useEffect(() => {
@@ -32,8 +32,8 @@ export const TemplatesDemoList = () => {
 
   return (
     showTemplatesOnPanel && (
-      <div className={classes.templatesDemoList}>
-        <ul className={classes.templatesDemoListContent}>
+      <div className={classes.templatesDraggableList}>
+        <ul className={classes.templatesDraggableListContent}>
           {templatesByCategoryRender}
         </ul>
       </div>

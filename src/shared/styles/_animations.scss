@@ -10,6 +10,16 @@
       background-position: 0% 50%;
     }
   }
+
+  @keyframes scaleUpAnimation {
+    from {
+      transform: scale(0.7);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
   
-  --gradient-animation: gradientAnimation 5s ease infinjecte;
+  --gradient-animation: gradientAnimation 5s ease infinite;
+  --scaleup-animation: scaleUpAnimation 0.3s ease-in-out;
 }

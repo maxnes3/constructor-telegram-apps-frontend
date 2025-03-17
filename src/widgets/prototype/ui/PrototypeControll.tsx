@@ -4,7 +4,7 @@ import {
   PrototypeRunningLayout,
   PrototypeTelegramTopPanel,
 } from '@feature/prototype';
-import { PrototypeLayoutArea, usePrototypeLayout } from '@entities/prototype';
+import { usePrototypeLayout } from '@entities/prototype';
 import classes from './styles.module.scss';
 import cn from 'classnames';
 
@@ -24,7 +24,6 @@ export const PrototypeControll = () => {
         <PrototypeTelegramTopPanel />
         <PrototypeDevelopLayout />
         <PrototypeRunningLayout />
-        <PrototypeLayoutArea />
       </div>
     </div>
   );
