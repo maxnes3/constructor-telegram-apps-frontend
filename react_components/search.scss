@@ -48,3 +48,56 @@
 .clear-button:hover svg {
     stroke: #616161;
 }
+
+
+
+.search-container {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border: 4px solid #d9d9d9;
+    border-radius: 12px;
+    padding: 0 12px;
+    margin: 4px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+    height: 40px;
+}
+
+.search-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: #616161;
+    background: transparent;
+}
+
+.search-input::placeholder {
+    color: #9e9e9e;
+}
+
+.clear-button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin-left: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.clear-button svg {
+    pointer-events: none;
+}
+
+.clear-button:hover svg {
+    stroke: #616161;
+}
