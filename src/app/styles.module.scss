@@ -10,5 +10,5 @@ body {
   @include fonts.inject();
   @include animations.inject();
 
-  font-family: var(--urbanist-font);
+  font-family: var(--jetbrainsmono-font);
 }

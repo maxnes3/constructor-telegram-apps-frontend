@@ -1,5 +1,5 @@
 .buttonComponent {
-  font-family: var(--urbanist-font);
+  font-family: var(--jetbrainsmono-font);
   font-weight: 600;
   font-size: 15px;
   padding: 8px 16px;
@@ -11,7 +11,7 @@
 }
 
 .default {
-  background-color: var(--white-background);
+  background-color: var(--dark-background);
   box-shadow: var(--component-shadow);
   color: var(--black-text);
   border-radius: 20px;
@@ -20,18 +20,21 @@
 .active {
   background: var(--active-gradient-background);
   box-shadow: var(--component-shadow);
-  color: var(--white-text);
+  color: var(--black-text);
   animation: var(--gradient-animation);
+  background-size: 200% 200%;
   border-radius: 20px;
+  transition: all ease-in-out 0.3s;
 
   &:hover {
     box-shadow: var(--component-shadow-hover);
+    color: var(--white-text);
   }
 }
 
 .transparent {
   background-color: transparent;
-  color: var(--black-text);
+  color: var(--white-text);
   
   &:hover {
     color: var(--active-text);

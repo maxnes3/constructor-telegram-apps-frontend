@@ -4,6 +4,7 @@ import { useProjectQuery } from '@entities/project';
 import { useProjectConfig } from '@/entities/project';
 import { useTemplatesAtPrototype } from '@/entities/template';
 import classes from './styles.module.scss';
+import { DownloadIcon } from '@/shared/assets/icons';
 
 export const ProjectChangeDataPanel = () => {
   const { projectName, changeProjectName } = useProjectConfig();
@@ -27,7 +28,10 @@ export const ProjectChangeDataPanel = () => {
           onChange={changeProjectName}
         />
         <Button mode={'active'} onClick={handleDownloadProjectZip}>
-          Export as Zip
+          <div className={classes.downloadButton}>
+            <DownloadIcon />
+            Export as Zip
+          </div>
         </Button>
       </div>
     </div>

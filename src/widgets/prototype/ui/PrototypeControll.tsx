@@ -11,8 +11,8 @@ import cn from 'classnames';
 export const PrototypeControll = () => {
   const { isScaledPrototype } = usePrototypeLayout();
 
-  const prototypeLayoutContainerClassNames = cn(
-    classes.prototypeLayoutContainer,
+  const prototypeControllContainerClassNames = cn(
+    classes.prototypeControllContainer,
     {
       [classes.isScaled]: isScaledPrototype,
     },
@@ -20,10 +20,12 @@ export const PrototypeControll = () => {
 
   return (
     <div className={classes.prototypeControll}>
-      <div id={PROTOTYPE_ID} className={prototypeLayoutContainerClassNames}>
-        <PrototypeTelegramTopPanel />
-        <PrototypeDevelopLayout />
-        <PrototypeRunningLayout />
+      <div className={prototypeControllContainerClassNames}>
+        <div id={PROTOTYPE_ID} className={classes.prototypeControllContent}>
+          <PrototypeTelegramTopPanel />
+          <PrototypeDevelopLayout />
+          <PrototypeRunningLayout />
+        </div>
       </div>
     </div>
   );

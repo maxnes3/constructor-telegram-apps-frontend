@@ -1,0 +1,1 @@
+export { JSXRenderModule } from './JSXRenderModule';

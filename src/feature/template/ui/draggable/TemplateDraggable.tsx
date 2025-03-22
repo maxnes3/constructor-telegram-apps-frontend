@@ -45,9 +45,9 @@ export const TemplateDraggable: FC<TemplateDraggableProps> = ({ template }) => {
       onDrag={handleOnDrag}
       onStop={handleOnStop}
     >
-      <div className={classes.templateDemoContainer}>
+      <div className={classes.templateDraggableContainer}>
         <TemplateRenderer buildTemplate={demo} />
-        <span className={classes.templateDemoTitle}>{name}</span>
+        <span className={classes.templateDraggableTitle}>{name}</span>
       </div>
     </Draggable>
   );

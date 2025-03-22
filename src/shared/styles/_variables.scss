@@ -1,15 +1,24 @@
 @mixin inject() {
   --white-text: #fff;
   --black-text: #000;
-  --gray-text: #A9A9A9;
-  --active-text: #007aff;
+  --gray-text: #a9a9a9;
+  --blue-text: #007aff;
+  --active-text: #c792ea;
 
   --white-background: #fff;
-  --gray-background: #D9D9D9;
+  --dark-background: #1e1e1e;
+  --gray-background: #d9d9d9;
   --active-background: #007aff;
   --active-background-hover: #005bb5;
   --active-background-light: #87cefa;
-  --active-gradient-background: linear-gradient(135deg, #005bb5, #007aff, #87cefa);
+  --active-gradient-background: linear-gradient(
+    135deg,
+    #ffcb6b,
+    #ffa7c4,
+    #c792ea,
+    #82aaff,
+    #89ddff
+  );
 
   --component-shadow: 0 2px 5px rgba(0, 0, 0, 0.1),
     0px 1px 3px rgba(0, 0, 0, 0.08);

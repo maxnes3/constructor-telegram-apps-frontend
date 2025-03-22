@@ -24,6 +24,7 @@ export const TemplatesDraggableList = () => {
 
   useEffect(() => {
     getAllTemplates();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (!templates.length) {

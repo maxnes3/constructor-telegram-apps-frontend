@@ -24,7 +24,7 @@ export const TogglePanel = () => {
     <div className={classes.toggleButtonContainer}>
       <div className={classes.toggleButtonContent}>
         <Button
-          mode={'default'}
+          mode={'active'}
           customClassNames={classes.toggleButton}
           onClick={handleTogglePanel}
         >

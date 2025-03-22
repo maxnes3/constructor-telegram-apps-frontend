@@ -1,6 +1,7 @@
 import { TemplateRenderer, useTemplatesAtPrototype } from '@entities/template';
 import classes from './styles.module.scss';
 import { useProjectMode } from '@/entities/project';
+import { EmptyContentIcon } from '@/shared/assets/icons';
 
 export const PrototypeRunningLayout = () => {
   const { projectMode } = useProjectMode();
@@ -12,11 +13,20 @@ export const PrototypeRunningLayout = () => {
       <TemplateRenderer key={template.id} buildTemplate={template.prototype} />
     ));
 
-  return (
-    projectMode === 'running' && (
-      <div className={classes.prototypeRunningLayout}>
-        {templatesAtPrototypeRender}
+  if (projectMode !== 'running') return null;
+
+  if (templatesAtPrototype.length === 0) {
+    return (
+      <div className={classes.emptyContent}>
+        <EmptyContentIcon />
+        Empty
       </div>
-    )
+    );
+  }
+
+  return (
+    <div className={classes.prototypeRunningLayout}>
+      {templatesAtPrototypeRender}
+    </div>
   );
 };

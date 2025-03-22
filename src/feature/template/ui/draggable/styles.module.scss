@@ -1,25 +1,26 @@
-.templateDemoContainer {
+.templateDraggableContainer {
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
   gap: 10px;
   cursor: grab;
+  animation: var(--scaleup-animation);
 
   &:active {
     cursor: grabbing;
   }
 
-  &:active .templateDemoTitle {
+  &:active .templateDraggableTitle {
     color: var(--active-background);
   }
 
-  &:hover .templateDemoTitle {
+  &:hover .templateDraggableTitle {
     color: var(--active-background);
   }
 
-  .templateDemoTitle {
-    font-family: var(--urbanist-font);
-    color: var(--black-text);
+  .templateDraggableTitle {
+    font-family: var(--jetbrainsmono-font);
+    color: var(--white-text);
     font-weight: 600;
     font-size: 18px;
     text-align: center;

@@ -1,6 +1,6 @@
 .categorySwitchContainer {
   display: flex;
-  background-color: var(--gray-background);
+  background-color: var(--white-background);
   justify-content: center;
   align-items: center;
   padding: 4px 0;
@@ -8,7 +8,7 @@
 
   .categorySwitchContent {
     display: inline-block;
-    background-color: var(--white-background);
+    background-color: var(--dark-background);
     box-shadow: var(--component-shadow);
     border-radius: 22px;
     padding: 4px;

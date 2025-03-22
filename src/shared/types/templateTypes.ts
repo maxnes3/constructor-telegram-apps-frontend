@@ -1,13 +1,4 @@
-export type CategoryType = {
-  id: string;
-  name: string;
-};
-
-export type BuildType = {
-  id?: string;
-  html: string;
-  css: string;
-};
+import { BuildType } from './buildTypes';
 
 export type TemplateType = {
   id: string;

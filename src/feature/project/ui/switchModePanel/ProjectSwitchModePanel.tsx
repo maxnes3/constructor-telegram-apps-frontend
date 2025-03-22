@@ -43,7 +43,7 @@ export const ProjectSwitchModePanel = () => {
 
   return (
     <div className={classes.projectSwitchModePanel}>
-      <div className={classes.panelProjectContent}>
+      <div className={classes.projectPanelContent}>
         <Switch
           current={projectMode}
           options={projectModeOptions}

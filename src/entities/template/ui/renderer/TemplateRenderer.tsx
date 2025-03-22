@@ -9,6 +9,6 @@ type TemplateRendererProps = {
 export const TemplateRenderer: FC<TemplateRendererProps> = ({
   buildTemplate,
 }) => {
-  const { html, css } = buildTemplate;
-  return <Renderer html={html} css={css} />;
+  const { jsx, scss } = buildTemplate;
+  return <Renderer jsx={jsx} scss={scss} />;
 };

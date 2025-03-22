@@ -1,1 +1,1 @@
-export { Renderer } from './RendererComponent';
+export { Renderer } from './container';

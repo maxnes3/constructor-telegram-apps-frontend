@@ -15,7 +15,9 @@
     width: calc(100% / var(--options-count));
     background: var(--active-gradient-background);
     box-shadow: var(--component-shadow);
+    animation: var(--gradient-animation);
     border-radius: 20px;
+    background-size: 200% 200%;
     transition: all ease-out 0.2s;
     transform: translateX(calc(var(--active-index) * 100%));
   }
@@ -23,14 +25,14 @@
   .option {
     position: relative;
     flex: 1;
-    transition: all ease 0.3s;
-    font-family: var(--urbanist-font);
+    transition: all ease-in-out 0.3s;
+    font-family: var(--jetbrainsmono-font);
     padding: 8px 16px;
     cursor: pointer;
   }
 
   .default {
-    color: var(--black-text);
+    color: var(--white-text);
 
     &:hover {
       color: var(--active-text);
@@ -38,6 +40,10 @@
   }
 
   .active {
-    color: var(--white-text);
+    color: var(--black-text);
+
+    &:hover {
+      color: var(--white-text);
+    }
   }
 }
