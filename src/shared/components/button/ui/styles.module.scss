@@ -1,13 +1,22 @@
+@use '@shared/styles/adaptive' as adaptive;
+
 .buttonComponent {
   font-family: var(--jetbrainsmono-font);
   font-weight: 600;
-  font-size: 15px;
   padding: 8px 16px;
   border: none;
   cursor: pointer;
   justify-content: center;
   align-items: center;
   transition: all ease 0.3s;
+
+  @include adaptive.mediaHeight('xxlarge') {
+    font-size: 16px;
+  }
+
+  @include adaptive.mediaHeight('large', 'xlarge') {
+    font-size: 14px;
+  }
 }
 
 .default {

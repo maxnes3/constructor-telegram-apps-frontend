@@ -2,7 +2,7 @@ import { ProjectRequestType } from '@shared/types';
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
 
-const PROJECT_BASE_URL = `${import.meta.env.VITE_BACK_URL}/project`;
+const PROJECT_BASE_URL = `${import.meta.env.VITE_API_URL}/project`;
 
 const downloadProjectQueryFn = async (
   data: ProjectRequestType,

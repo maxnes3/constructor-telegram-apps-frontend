@@ -1,3 +1,5 @@
+@use '@shared/styles/adaptive' as adaptive;
+
 .projectSwitchModePanel {
   display: inline-block;
   background-color: var(--white-background);
@@ -20,9 +22,16 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  font-size: 16px;
   font-weight: 600;
   gap: 8px;
+
+  @include adaptive.mediaHeight('xxlarge') {
+    font-size: 16px;
+  }
+
+  @include adaptive.mediaHeight('large', 'xlarge') {
+    font-size: 14px;
+  }
 
   svg {
     width: 0px;

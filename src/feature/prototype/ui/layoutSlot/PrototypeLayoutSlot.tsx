@@ -24,14 +24,14 @@ export const PrototypeLayoutSlot: FC<PrototypeLayoutSlotProps> = ({
     {
       [classes.isActive]:
         isOverPrototype && slotPositionBehaviour === positionBehaviour,
-      [customClassNames as string]: customClassNames,
     },
+    customClassNames,
   );
 
   const renderTemplatesAtSlot =
     templates.length > 0
       ? templates.map((template) => (
-          <TemplateRenderer buildTemplate={template.demo} />
+          <TemplateRenderer key={template.id} buildTemplate={template.demo} />
         ))
       : null;
 

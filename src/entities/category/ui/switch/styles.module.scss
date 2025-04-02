@@ -1,3 +1,5 @@
+@use '@shared/styles/adaptive' as adaptive;
+
 .categorySwitchContainer {
   display: flex;
   background-color: var(--white-background);
@@ -14,7 +16,13 @@
     padding: 4px;
 
     .categorySwitchButton {
-      font-size: 18px;
+      @include adaptive.mediaHeight('xxlarge') {
+        font-size: 16px;
+      }
+
+      @include adaptive.mediaHeight('large', 'xlarge') {
+        font-size: 14px;
+      }
     }
   }
 }

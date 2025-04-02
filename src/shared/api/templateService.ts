@@ -1,14 +1,10 @@
-import axios from 'axios';
-import { TemplateType } from '../types';
-
-const TEMPLATE_BASE_URL = `${import.meta.env.VITE_BACK_URL}/template`;
+import { TemplateType } from '@shared/types';
+import { serviceConfig } from '@shared/configs';
 
 export const TemplateService = {
   getAllTemplatesQueryFn: async (): Promise<TemplateType[]> => {
     try {
-      const response = await axios.get<TemplateType[]>(
-        `${TEMPLATE_BASE_URL}/get`,
-      );
+      const response = await serviceConfig.get<TemplateType[]>('/template/get');
       return response.data;
     } catch (error) {
       throw new Error(`Failed to fetch templates: ${error}`);

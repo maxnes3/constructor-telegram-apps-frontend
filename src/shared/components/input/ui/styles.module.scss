@@ -1,11 +1,20 @@
+@use '@shared/styles/adaptive' as adaptive;
+
 .inputComponent {
   font-family: var(--jetbrainsmono-font);
-  font-size: 15px;
   font-weight: 600;
   padding: 8px 16px;
   border-radius: 20px;
   border: none;
   outline: none;
+
+  @include adaptive.mediaHeight('xxlarge') {
+    font-size: 16px;
+  }
+
+  @include adaptive.mediaHeight('large', 'xlarge') {
+    font-size: 14px;
+  }
 
   &::placeholder {
     color: #808080;

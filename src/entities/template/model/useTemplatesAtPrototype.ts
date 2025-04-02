@@ -1,17 +1,29 @@
 import { TemplateType } from '@shared/types';
 import { useTemplatesStore } from '../store';
 
+type removeTemplateFromPrototypeParams = {
+  removedId: TemplateType['id'];
+  positionBehaviour: string;
+};
+
 export const useTemplatesAtPrototype = () => {
   const { templatesAtPrototype, setTemplateAtPrototype } = useTemplatesStore();
 
   const addTemplateAtPrototype = (newTemplate: TemplateType) => {
-    setTemplateAtPrototype([...templatesAtPrototype, newTemplate]);
+    const newTemplatesAtPrototype = templatesAtPrototype;
+    newTemplatesAtPrototype[newTemplate.positionBehaviour].push(newTemplate);
+    setTemplateAtPrototype(newTemplatesAtPrototype);
   };
 
-  const removeTemplateFromPrototype = (removedId: TemplateType['id']) => {
-    setTemplateAtPrototype(
-      templatesAtPrototype.filter((template) => template.id !== removedId),
+  const removeTemplateFromPrototype = ({
+    removedId,
+    positionBehaviour,
+  }: removeTemplateFromPrototypeParams) => {
+    const newTemplatesAtPrototype = templatesAtPrototype;
+    newTemplatesAtPrototype[positionBehaviour].filter(
+      (template) => template.id !== removedId,
     );
+    setTemplateAtPrototype(newTemplatesAtPrototype);
   };
 
   return {

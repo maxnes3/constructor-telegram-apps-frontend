@@ -1,1 +1,1 @@
-export { PrototypeRunningLayout } from './PrototypeRunningLayout';
+export { default as PrototypeRunningLayout } from './PrototypeRunningLayout';

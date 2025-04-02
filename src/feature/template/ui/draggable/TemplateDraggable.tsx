@@ -6,6 +6,7 @@ import { usePrototypeAreaBehavior } from '@entities/prototype';
 import { TemplateRenderer, useTemplatesAtPrototype } from '@entities/template';
 import { useProjectMode } from '@entities/project';
 import classes from './styles.module.scss';
+import cn from 'classnames';
 
 type TemplateDraggableProps = {
   template: TemplateType;
@@ -39,16 +40,24 @@ export const TemplateDraggable: FC<TemplateDraggableProps> = ({ template }) => {
     setTemplatePosition({ x: 0, y: 0 });
   };
 
+  const templateRendererClassNames = cn(
+    classes.templateDraggableRenderer,
+    classes[positionBehaviour],
+  );
+
   return (
     <Draggable
       position={templatePosition}
       onDrag={handleOnDrag}
       onStop={handleOnStop}
     >
-      <div className={classes.templateDraggableContainer}>
-        <TemplateRenderer buildTemplate={demo} />
+      <li className={classes.templateDraggableContainer}>
+        <TemplateRenderer
+          buildTemplate={demo}
+          customClassNames={templateRendererClassNames}
+        />
         <span className={classes.templateDraggableTitle}>{name}</span>
-      </div>
+      </li>
     </Draggable>
   );
 };

@@ -1,1 +1,1 @@
-export { PrototypeDevelopLayout } from './PrototypeDevelopLayout';
+export { default as PrototypeDevelopLayout } from './PrototypeDevelopLayout';

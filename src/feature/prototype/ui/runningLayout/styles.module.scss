@@ -7,6 +7,20 @@
   width: 100%;
   height: 100%;
   animation: var(--scaleup-animation);
+
+  .prototypeRunningTemplate {}
+
+  .isTop {
+    position: sticky;
+    top: 0;
+    background-color: var(--white-background);
+  }
+
+  .isBottom {
+    position: sticky;
+    bottom: 0;
+    background-color: var(--white-background);
+  }
 }
 
 .emptyContent {

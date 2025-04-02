@@ -1,33 +1,32 @@
 import { useProjectMode } from '@entities/project';
 import { useTemplatesAtPrototype } from '@entities/template';
 import { PrototypeLayoutSlot } from '@feature/prototype';
+import { memo, useCallback } from 'react';
+import { POSITION_BEHAVIOUR_STACK } from '@feature/prototype/model';
 import classes from './styles.module.scss';
 
-export const PrototypeDevelopLayout = () => {
+const PrototypeDevelopLayout = () => {
   const { projectMode } = useProjectMode();
   const { templatesAtPrototype } = useTemplatesAtPrototype();
 
-  const handelFilterTemplates = (positionBehaviour: string) =>
-    templatesAtPrototype.filter(
-      (template) => template.positionBehaviour == positionBehaviour,
-    );
+  const handelFilterTemplates = useCallback(
+    (positionBehaviour: string) => templatesAtPrototype[positionBehaviour],
+    [templatesAtPrototype],
+  );
 
   return (
     projectMode === 'develop' && (
       <div className={classes.prototypeDevelopLayout}>
-        <PrototypeLayoutSlot
-          slotPositionBehaviour={'isTop'}
-          templates={handelFilterTemplates('isTop')}
-        />
-        <PrototypeLayoutSlot
-          slotPositionBehaviour={'isFill'}
-          templates={handelFilterTemplates('isFill')}
-        />
-        <PrototypeLayoutSlot
-          slotPositionBehaviour={'isBottom'}
-          templates={handelFilterTemplates('isBottom')}
-        />
+        {POSITION_BEHAVIOUR_STACK.map((positionBehaviour) => (
+          <PrototypeLayoutSlot
+            key={positionBehaviour}
+            slotPositionBehaviour={positionBehaviour}
+            templates={handelFilterTemplates(positionBehaviour)}
+          />
+        ))}
       </div>
     )
   );
 };
+
+export default memo(PrototypeDevelopLayout);

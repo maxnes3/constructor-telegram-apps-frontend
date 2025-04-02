@@ -1,4 +1,12 @@
+@use '@shared/styles/adaptive' as adaptive;
+
 .prototypeControll {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto 0;
+  padding: 12px 0;
+
   --aspect-ratio-y: 19.5;
   --aspect-ratio-x: 9;
   --border-width: 4px;
@@ -9,11 +17,9 @@
     var(--start-height) * var(--aspect-ratio-x) / var(--aspect-ratio-y)
   );
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: auto 0;
-  padding: 12px 0;
+  @include adaptive.mediaHeight('large', 'xlarge') {
+    --start-height: 500px;
+  }
 
   .prototypeControllContainer {
     background-color: var(--dark-background);
