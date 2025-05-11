@@ -3,7 +3,7 @@ import { usePrototypeStore } from '../store';
 export const usePrototypeLayout = () => {
   const { isScaledPrototype, setIsScaledPrototype } = usePrototypeStore();
 
-  const switchIsScaledPrototype = (newValue: boolean) => {
+  const switchIsScaledPrototype = (newValue: typeof isScaledPrototype) => {
     setIsScaledPrototype(newValue);
   };
 

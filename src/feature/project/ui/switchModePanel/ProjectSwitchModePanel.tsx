@@ -1,19 +1,20 @@
 import { Switch, SwitchOptionType } from '@shared/components';
 import { DevelopIcon, RunningIcon } from '@shared/assets/icons';
+import { useProjectMode } from '@/entities/project';
+import { ProjectModeEnum } from '@/shared/types';
 import classes from './styles.module.scss';
 import cn from 'classnames';
-import { useProjectMode } from '@/entities/project';
 
 export const ProjectSwitchModePanel = () => {
   const { projectMode, switchProjectMode } = useProjectMode();
 
   const projectModeOptions: SwitchOptionType[] = [
     {
-      value: 'develop',
+      value: ProjectModeEnum.DEVELOP,
       component: (
         <div
           className={cn(classes.mode, {
-            [classes.showIcon]: projectMode === 'develop',
+            [classes.showIcon]: projectMode === ProjectModeEnum.DEVELOP,
           })}
         >
           <DevelopIcon />
@@ -22,11 +23,11 @@ export const ProjectSwitchModePanel = () => {
       ),
     },
     {
-      value: 'running',
+      value: ProjectModeEnum.RUNNING,
       component: (
         <div
           className={cn(classes.mode, {
-            [classes.showIcon]: projectMode === 'running',
+            [classes.showIcon]: projectMode === ProjectModeEnum.RUNNING,
           })}
         >
           <RunningIcon />
@@ -37,7 +38,12 @@ export const ProjectSwitchModePanel = () => {
   ];
 
   const handleSwitchMode = (newValue: string) => {
-    if (newValue !== 'develop' && newValue !== 'running') return;
+    if (
+      newValue !== ProjectModeEnum.DEVELOP &&
+      newValue !== ProjectModeEnum.RUNNING
+    ) {
+      return;
+    }
     switchProjectMode(newValue);
   };
 

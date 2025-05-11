@@ -1,14 +1,18 @@
-import { TemplateRenderer, useTemplatesAtPrototype } from '@entities/template';
+import { TemplateRenderer } from '@entities/template';
 import { useProjectMode } from '@/entities/project';
 import { EmptyContentIcon } from '@/shared/assets/icons';
 import { memo, useCallback } from 'react';
 import { POSITION_BEHAVIOUR_STACK } from '@feature/prototype/model';
 import classes from './styles.module.scss';
 import cn from 'classnames';
+import { useScreensAtProject } from '@/entities/screen';
+import { ProjectModeEnum } from '@/shared/types';
 
 const PrototypeRunningLayout = () => {
   const { projectMode } = useProjectMode();
-  const { templatesAtPrototype } = useTemplatesAtPrototype();
+  const { currentScreen } = useScreensAtProject();
+
+  const templatesAtPrototype = currentScreen.templatesAtScreen;
 
   const templatesAtPrototypeRender = useCallback(
     (positionBehaviour: string) =>
@@ -26,7 +30,7 @@ const PrototypeRunningLayout = () => {
     [templatesAtPrototype],
   );
 
-  if (projectMode !== 'running') return null;
+  if (projectMode !== ProjectModeEnum.RUNNING) return null;
 
   if (
     Object.values(templatesAtPrototype).every(

@@ -1,0 +1,26 @@
+.modalProjectExport {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .exportButton {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    border-radius: 12px;
+    gap: 16px;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .orText {
+    text-align: center;
+    color: var(--white-text);
+    margin: 12px 0;
+  }
+
+  .osIcon {
+    width: 36px;
+    height: 36px;
+  }
+}

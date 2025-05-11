@@ -1,10 +1,11 @@
 import { FC, useState } from 'react';
 import Draggable, { DraggableEvent } from 'react-draggable';
-import { TemplateType } from '@shared/types';
+import { ProjectModeEnum, TemplateType } from '@shared/types';
 import { getIsInsidePrototype } from '@feature/template/model';
 import { usePrototypeAreaBehavior } from '@entities/prototype';
-import { TemplateRenderer, useTemplatesAtPrototype } from '@entities/template';
+import { TemplateRenderer } from '@entities/template';
 import { useProjectMode } from '@entities/project';
+import { useScreensAtProject } from '@/entities/screen';
 import classes from './styles.module.scss';
 import cn from 'classnames';
 
@@ -13,17 +14,20 @@ type TemplateDraggableProps = {
 };
 
 export const TemplateDraggable: FC<TemplateDraggableProps> = ({ template }) => {
-  const { name, demo, positionBehaviour } = template;
+  const { id, name, demo, positionBehaviour } = template;
   const [templatePosition, setTemplatePosition] = useState({ x: 0, y: 0 });
   const { switchIsOverPrototype, changePositionBehaviour } =
     usePrototypeAreaBehavior();
-  const { addTemplateAtPrototype } = useTemplatesAtPrototype();
+  const { checkTemplateAtScreenById, addTemplateAtScreen } =
+    useScreensAtProject();
   const { switchProjectMode } = useProjectMode();
+
+  const isAlreadyUsing = checkTemplateAtScreenById(id);
 
   const handleOnDrag = (e: DraggableEvent) => {
     const isInside = getIsInsidePrototype(e.target);
 
-    switchProjectMode('develop');
+    switchProjectMode(ProjectModeEnum.DEVELOP);
     changePositionBehaviour(positionBehaviour);
     switchIsOverPrototype(isInside);
   };
@@ -31,8 +35,8 @@ export const TemplateDraggable: FC<TemplateDraggableProps> = ({ template }) => {
   const handleOnStop = (e: DraggableEvent) => {
     const isInside = getIsInsidePrototype(e.target);
 
-    if (isInside) {
-      addTemplateAtPrototype(template);
+    if (isInside && !isAlreadyUsing) {
+      addTemplateAtScreen(template);
     }
 
     switchIsOverPrototype(false);

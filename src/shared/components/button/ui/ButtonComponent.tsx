@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { LayoutRouteProps } from 'react-router-dom';
+import { BaseComponentsProps } from '@shared/components/type';
 import classes from './styles.module.scss';
 import cn from 'classnames';
 
@@ -7,8 +8,8 @@ type ButtonProps = {
   mode?: 'default' | 'active' | 'transparent';
   type?: 'submit' | 'button';
   onClick?: VoidFunction;
-  customClassNames?: string;
-} & LayoutRouteProps;
+} & LayoutRouteProps &
+  BaseComponentsProps;
 
 export const Button: FC<ButtonProps> = ({
   mode = 'default',

@@ -8,11 +8,11 @@ export const usePrototypeAreaBehavior = () => {
     setPositionBehaviour,
   } = usePrototypeStore();
 
-  const switchIsOverPrototype = (newValue: boolean) => {
+  const switchIsOverPrototype = (newValue: typeof isOverPrototype) => {
     setIsOverPrototype(newValue);
   };
 
-  const changePositionBehaviour = (newValue: string | null) => {
+  const changePositionBehaviour = (newValue: typeof positionBehaviour) => {
     setPositionBehaviour(newValue);
   };
 

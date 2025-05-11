@@ -1,31 +1,18 @@
+import { ProjectService } from '@/shared/api';
 import { ProjectRequestType } from '@shared/types';
 import { useMutation } from '@tanstack/react-query';
-import axios from 'axios';
-
-const PROJECT_BASE_URL = `${import.meta.env.VITE_API_URL}/project`;
-
-const downloadProjectQueryFn = async (
-  data: ProjectRequestType,
-): Promise<Blob> => {
-  const response = await axios.post(`${PROJECT_BASE_URL}/download`, data, {
-    responseType: 'blob',
-  });
-  return response.data;
-};
 
 export const useProjectQuery = () => {
   const mutation = useMutation<Blob, Error, ProjectRequestType>({
-    mutationFn: downloadProjectQueryFn,
+    mutationFn: ProjectService.downloadProjectQueryFn,
     onSuccess: (data) => {
-      // Создаем ссылку для скачивания файла
       const url = window.URL.createObjectURL(new Blob([data]));
       const link = document.createElement('a');
       link.href = url;
-      link.setAttribute('download', 'project.zip'); // Имя файла для скачивания
+      link.setAttribute('download', 'project.zip');
       document.body.appendChild(link);
       link.click();
 
-      // Очищаем ссылку после скачивания
       window.URL.revokeObjectURL(url);
       document.body.removeChild(link);
     },

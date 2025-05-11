@@ -2,17 +2,19 @@ import { FC, useRef, useEffect, useState, CSSProperties } from 'react';
 import { SwitchOptionType } from '../model';
 import cn from 'classnames';
 import classes from './styles.module.scss';
+import { BaseComponentsProps } from '../../type';
 
 type SwitchProps = {
   options: SwitchOptionType[];
   current: string;
   handleSwitchValue: (newValue: string) => void;
-};
+} & BaseComponentsProps;
 
 export const Switch: FC<SwitchProps> = ({
   options,
   current,
   handleSwitchValue,
+  customClassNames,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -29,8 +31,13 @@ export const Switch: FC<SwitchProps> = ({
     setActiveIndex(currentIndex);
   }, [current, options]);
 
+  const switchComponentClassNames = cn(
+    classes.switchComponent,
+    customClassNames,
+  );
+
   return (
-    <div className={classes.switchComponent} ref={containerRef}>
+    <div className={switchComponentClassNames} ref={containerRef}>
       <div
         className={classes.backgroundTransition}
         style={backgroundTransitionProperties}

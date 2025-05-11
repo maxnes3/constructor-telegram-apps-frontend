@@ -1,0 +1,56 @@
+@use "@shared/styles/adaptive" as adaptive;
+
+.prototypeLayoutTemplateContainer {
+  display: inline-flex;
+  flex-direction: column;
+  width: auto;
+  height: auto;
+  transition: all 0.3s ease;
+}
+
+.prototypeLayoutTemplateButtons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  animation: var(--scaleup-animation);
+
+  .button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--black-text);
+    gap: 8px;
+
+    .icon {
+      width: 18px;
+      height: 18px;
+    }
+  }
+}
+
+.prototypeLayoutTemplate {
+  position: relative;
+  cursor: pointer;
+  transform: scale(0.8);
+
+  @include adaptive.mediaHeight("xxlarge") {
+    width: 256px;
+    max-height: 142px;
+  }
+
+  @include adaptive.mediaHeight("large", "xlarge") {
+    width: 224px;
+    max-height: 124px;
+  }
+}
+
+.isFill {
+  @include adaptive.mediaHeight("xxlarge") {
+    height: 142px;
+  }
+
+  @include adaptive.mediaHeight("large", "xlarge") {
+    height: 124px;
+  }
+}

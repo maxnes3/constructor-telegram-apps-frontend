@@ -5,7 +5,7 @@ interface CategoriesState {
   categories: CategoryType[];
   currentCategory: string | null;
   setCategories: (categories: CategoryType[]) => void;
-  setCurrentCategory: (newValue: string) => void;
+  setCurrentCategory: (newValue: string | null) => void;
 }
 
 export const useCategoriesStore = create<CategoriesState>((set) => ({
@@ -15,7 +15,7 @@ export const useCategoriesStore = create<CategoriesState>((set) => ({
     set(() => ({
       categories,
     })),
-  setCurrentCategory: (newValue: string) =>
+  setCurrentCategory: (newValue: string | null) =>
     set(() => ({
       currentCategory: newValue,
     })),

@@ -1,22 +1,16 @@
 import { Input } from '@shared/components';
 import { Button } from '@shared/components';
-import { useProjectQuery } from '@entities/project';
 import { useProjectConfig } from '@/entities/project';
-import { useTemplatesAtPrototype } from '@/entities/template';
-import classes from './styles.module.scss';
 import { DownloadIcon } from '@/shared/assets/icons';
+import { ModalEnum, useModalContext } from '@/shared/components/modal';
+import classes from './styles.module.scss';
 
 export const ProjectChangeDataPanel = () => {
   const { projectName, changeProjectName } = useProjectConfig();
-  const { templatesAtPrototype } = useTemplatesAtPrototype();
-  const { downloadProject } = useProjectQuery();
+  const { open } = useModalContext();
 
-  const handleDownloadProjectZip = () => {
-    const templatesId = templatesAtPrototype.map((template) => template.id);
-    downloadProject({
-      name: projectName,
-      templatesId,
-    });
+  const handleOpenExportModal = () => {
+    open(ModalEnum.PROJECT_EXPORT);
   };
 
   return (
@@ -27,10 +21,10 @@ export const ProjectChangeDataPanel = () => {
           placeholder="Project name"
           onChange={changeProjectName}
         />
-        <Button mode={'active'} onClick={handleDownloadProjectZip}>
+        <Button mode={'active'} onClick={handleOpenExportModal}>
           <div className={classes.downloadButton}>
             <DownloadIcon />
-            Export as Zip
+            EXPORT
           </div>
         </Button>
       </div>

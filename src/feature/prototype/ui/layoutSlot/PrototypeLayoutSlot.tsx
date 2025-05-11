@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { TemplateType } from '@/shared/types';
 import { usePrototypeAreaBehavior } from '@entities/prototype';
-import { TemplateRenderer } from '@/entities/template';
+import { PrototypeLayoutTemplate } from '../layoutTemplate';
 import classes from './styles.module.scss';
 import cn from 'classnames';
 
@@ -31,7 +31,7 @@ export const PrototypeLayoutSlot: FC<PrototypeLayoutSlotProps> = ({
   const renderTemplatesAtSlot =
     templates.length > 0
       ? templates.map((template) => (
-          <TemplateRenderer key={template.id} buildTemplate={template.demo} />
+          <PrototypeLayoutTemplate key={template.id} template={template} />
         ))
       : null;
 

@@ -8,3 +8,5 @@ export type TemplateType = {
   demo: BuildType;
   prototype: BuildType;
 };
+
+export type TemplatesAtPrototypeType = Record<string, TemplateType[]>;

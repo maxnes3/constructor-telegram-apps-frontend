@@ -1,0 +1,48 @@
+@use '@shared/styles/adaptive' as adaptive;
+
+.modalProjectDownload {
+  @include adaptive.mediaWidth('desktop', 'wide') {
+    width: 768px;
+    cursor: pointer;
+  }
+}
+
+.content {
+  font-size: 16px;
+  color: var(--white-text);
+  padding: 0 8px;
+
+  a {
+    color: var(--active-text);
+  }
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+
+  .icon {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+.isSuccess {
+  color: var(--success-text);
+}
+
+.isError {
+  color: var(--error-text);
+}
+
+.downloadButton {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 600;
+  gap: 8px;
+}
