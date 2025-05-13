@@ -1,3 +1,10 @@
+@mixin iconsBasedRules() {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  color: var(--white-text);
+}
+
 .modalLayout {
   position: relative;
   display: inline-block;
@@ -7,13 +14,16 @@
   padding: 8px;
   animation: var(--scaleup-animation);
 
+  .backIcon {
+    left: 0;
+    transform: translate(-100%, -100%);
+    @include iconsBasedRules();
+  }
+
   .closeIcon {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
     right: 0;
     transform: translate(100%, -100%);
-    color: var(--white-text);
+    @include iconsBasedRules();
   }
 
   .modalLayoutHeader {

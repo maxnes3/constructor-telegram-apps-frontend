@@ -12,6 +12,7 @@ import SuccessIcon from './success.svg';
 import CloudIcon from './cloud.svg';
 import LoadingIcon from './loading.svg';
 import ServerIcon from './server.svg';
+import BackIcon from './back.svg';
 
 export {
   ArrowIcon,
@@ -28,4 +29,5 @@ export {
   CloudIcon,
   LoadingIcon,
   ServerIcon,
+  BackIcon,
 };

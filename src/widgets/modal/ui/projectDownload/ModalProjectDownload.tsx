@@ -1,6 +1,10 @@
 import { useProjectConfig, useProjectQuery } from '@/entities/project';
 import { useScreensAtProject } from '@/entities/screen';
-import { ModalLayout, useModalContext } from '@/shared/components/modal';
+import {
+  ModalEnum,
+  ModalLayout,
+  useModalContext,
+} from '@/shared/components/modal';
 import { ReactNode, useMemo } from 'react';
 import { BrowserOSEnum } from '@/shared/types';
 import {
@@ -70,7 +74,7 @@ const INSTRUCTIONS_FOR_START_PROJECT: Record<BrowserOSEnum, ReactNode> = {
 };
 
 export const ModalProjectDownload = () => {
-  const { close } = useModalContext();
+  const { open, close } = useModalContext();
   const { projectName, browserOS } = useProjectConfig();
   const { getScreensWithTemplatesIds } = useScreensAtProject();
   const { downloadProject, isIdle, isPending, isSuccess, isError } =
@@ -125,6 +129,10 @@ export const ModalProjectDownload = () => {
     });
   };
 
+  const handleBack = () => {
+    open(ModalEnum.PROJECT_EXPORT);
+  };
+
   const handleClose = () => {
     close();
   };
@@ -132,6 +140,7 @@ export const ModalProjectDownload = () => {
   return (
     <ModalLayout
       title={modalTitle}
+      onBack={handleBack}
       onClose={handleClose}
       customClassNames={classes.modalProjectDownload}
     >
