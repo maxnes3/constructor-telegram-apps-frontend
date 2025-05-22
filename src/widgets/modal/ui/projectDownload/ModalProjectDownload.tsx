@@ -11,8 +11,8 @@ import {
   LoadingIcon,
   SuccessIcon,
   CrossIcon,
-  ServerIcon,
   DownloadIcon,
+  NovatoolkitIcon,
 } from '@shared/assets/icons';
 import classes from './styles.module.scss';
 import cn from 'classnames';
@@ -59,7 +59,7 @@ const MACOS_INSTRUCTIONS: ReactNode = (
       installed)
     </p>
     <p>
-      6. ⏳ Wait for './start.bat' to install 📦 dependencies and 🚀 launch the
+      6. ⏳ Wait for './start.sh' to install 📦 dependencies and 🚀 launch the
       project
     </p>
   </>
@@ -90,7 +90,7 @@ export const ModalProjectDownload = () => {
       >
         {isIdle && (
           <>
-            <ServerIcon className={classes.icon} />
+            <NovatoolkitIcon className={classes.icon} />
             Server ready to build!
           </>
         )}
@@ -142,7 +142,7 @@ export const ModalProjectDownload = () => {
       title={modalTitle}
       onBack={handleBack}
       onClose={handleClose}
-      customClassNames={classes.modalProjectDownload}
+      rootClassNames={classes.modalProjectDownload}
     >
       <div className={classes.content}>{modalContent}</div>
       {!isPending && (

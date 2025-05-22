@@ -1,3 +1,16 @@
+@use "@shared/styles/adaptive" as adaptive;
+
+@mixin calcOffset($prev, $index, $next, $is-negative, $template-width) {
+  transform: translateX(
+    calc(
+      ((var(--template-pick-size) / 2 + var(--template-gap)) * var(#{$prev})) +
+      ((var(--template-pick-size) / 2 + var(--template-gap)) * var(#{$next})) +
+      (var(#{$template-width}) / 2) * (var(#{$index}) - 1) * var(#{$is-negative}) +
+      (var(#{$template-width}) / 2) * var(#{$is-negative})
+    )
+  );
+}
+
 .templatesDraggableList {
   display: flex;
   justify-content: center;
@@ -11,6 +24,31 @@
     align-items: center;
     padding: 0;
     margin: 0;
-    gap: 32px;
+    gap: var(--template-gap);
+
+    --offset-prev: 0;
+    --offset-index: 0;
+    --offset-next: 0;
+    --is-negative: 0;
+
+    @include adaptive.mediaHeight("xxlarge") {
+      @include calcOffset(
+        --offset-prev,
+        --offset-index,
+        --offset-next,
+        --is-negative,
+        --template-width-xxlarge
+      );
+    }
+
+    @include adaptive.mediaHeight("large", "xlarge") {
+      @include calcOffset(
+        --offset-prev,
+        --offset-index,
+        --offset-next,
+        --is-negative,
+        --template-width-large-xlarge
+      );
+    }
   }
 }

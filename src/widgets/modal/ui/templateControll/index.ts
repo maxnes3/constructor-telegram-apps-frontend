@@ -1,0 +1,1 @@
+export { ModalTemplateControll } from './ModalTemplateControll';

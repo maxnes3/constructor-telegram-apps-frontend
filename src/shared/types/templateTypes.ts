@@ -1,12 +1,12 @@
-import { BuildType } from './buildTypes';
+import { CodebaseType } from './codebaseTypes';
 
 export type TemplateType = {
   id: string;
   name: string;
   positionBehaviour: string;
   categoryId: string;
-  demo: BuildType;
-  prototype: BuildType;
+  develop: CodebaseType;
+  running: CodebaseType;
 };
 
 export type TemplatesAtPrototypeType = Record<string, TemplateType[]>;

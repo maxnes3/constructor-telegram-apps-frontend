@@ -20,7 +20,7 @@ const PrototypeRunningLayout = () => {
       templatesAtPrototype[positionBehaviour].map((template) => (
         <TemplateRenderer
           key={template.id}
-          buildTemplate={template.prototype}
+          codebaseTemplate={template.running}
           customClassNames={cn(
             classes.prototypeRunningTemplate,
             classes[template.positionBehaviour],

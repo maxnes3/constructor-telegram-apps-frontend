@@ -1,28 +1,36 @@
 import { Button } from '@shared/components';
 import { ArrowIcon } from '@shared/assets/icons';
 import { usePrototypeLayout } from '@/entities/prototype';
-import { useTemplatesListBehavior } from '@/entities/template';
+import {
+  DEFAULT_TEMPLATE_LIST_OFFSET,
+  useTemplatesList,
+} from '@/entities/template';
 import { useCategoriesQuery, useCurrentCategory } from '@/entities/category';
 import cn from 'classnames';
 import classes from './styles.module.scss';
 
 export const TogglePanel = () => {
   const { showTemplatesOnPanel, switchShowTemplatesOnPanel } =
-    useTemplatesListBehavior();
+    useTemplatesList();
   const { currentCategory, switchCurrentCategory } = useCurrentCategory();
   const { categories } = useCategoriesQuery();
-
   const { isScaledPrototype, switchIsScaledPrototype } = usePrototypeLayout();
+  const { switchActiveTemplateOnPanel, changeTemplateListOffset } =
+    useTemplatesList();
 
   const handleTogglePanel = () => {
     if (!categories) {
       return;
     }
+
     if (!currentCategory) {
       switchCurrentCategory(categories[0].id);
     }
+
     switchShowTemplatesOnPanel(!showTemplatesOnPanel);
     switchIsScaledPrototype(!isScaledPrototype);
+    switchActiveTemplateOnPanel(null);
+    changeTemplateListOffset(DEFAULT_TEMPLATE_LIST_OFFSET);
   };
 
   const arrowIconClassNames = cn(classes.toggleArrowIcon, {

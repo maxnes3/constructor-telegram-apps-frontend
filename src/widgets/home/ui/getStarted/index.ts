@@ -1,0 +1,1 @@
+export { HomeGetStarted } from './HomeGetStarted';

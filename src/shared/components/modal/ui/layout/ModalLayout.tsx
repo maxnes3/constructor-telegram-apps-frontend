@@ -1,6 +1,5 @@
 import { FC, ReactNode } from 'react';
 import { BackIcon, CrossIcon } from '@/shared/assets/icons';
-import { BaseComponentsProps } from '@/shared/components/type';
 import classes from './styles.module.scss';
 import cn from 'classnames';
 
@@ -9,18 +8,20 @@ type ModalLayoutProps = {
   title?: ReactNode;
   onBack?: VoidFunction;
   onClose?: VoidFunction;
-} & BaseComponentsProps;
+  rootClassNames?: string;
+  contentClassNames?: string;
+};
 
 export const ModalLayout: FC<ModalLayoutProps> = ({
   children,
   title,
   onBack,
   onClose,
-  customClassNames,
+  rootClassNames,
+  contentClassNames,
 }) => {
-  const modalLayoutClassNames = cn(classes.modalLayout, customClassNames);
   return (
-    <dialog className={modalLayoutClassNames}>
+    <dialog className={cn(classes.modalLayout, rootClassNames)}>
       {onBack && <BackIcon className={classes.backIcon} onClick={onBack} />}
       {onClose && <CrossIcon className={classes.closeIcon} onClick={onClose} />}
       {title && (
@@ -28,7 +29,9 @@ export const ModalLayout: FC<ModalLayoutProps> = ({
           <h2 className={classes.modalTitle}>{title}</h2>
         </div>
       )}
-      <div className={classes.modalLayoutContent}>{children}</div>
+      <div className={cn(classes.modalLayoutContent, contentClassNames)}>
+        {children}
+      </div>
     </dialog>
   );
 };

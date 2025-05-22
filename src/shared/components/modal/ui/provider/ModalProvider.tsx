@@ -1,5 +1,5 @@
 import { ReactNode, useCallback, useMemo, useState } from 'react';
-import { ModalContext, ModalType } from '../../model';
+import { ModalContext, ModalEnum } from '../../model';
 
 const ModalContextProvider = ModalContext.Provider;
 
@@ -8,10 +8,10 @@ interface ModalProviderProps {
 }
 
 export const ModalProvider = ({ children }: ModalProviderProps) => {
-  const [modalType, setModalType] = useState<ModalType | null>(null);
+  const [modalType, setModalType] = useState<ModalEnum | null>(null);
 
   const handleOpen = useCallback(
-    (modal: ModalType) => {
+    (modal: ModalEnum) => {
       setModalType(modal);
     },
     [setModalType],

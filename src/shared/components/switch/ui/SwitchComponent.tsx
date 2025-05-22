@@ -1,20 +1,22 @@
 import { FC, useRef, useEffect, useState, CSSProperties } from 'react';
 import { SwitchOptionType } from '../model';
+import { BaseComponentsProps } from '../../type';
 import cn from 'classnames';
 import classes from './styles.module.scss';
-import { BaseComponentsProps } from '../../type';
 
 type SwitchProps = {
   options: SwitchOptionType[];
   current: string;
-  handleSwitchValue: (newValue: string) => void;
+  onSwitchValue: (newValue: string) => void;
+  transitionClassNames?: string;
 } & BaseComponentsProps;
 
 export const Switch: FC<SwitchProps> = ({
   options,
   current,
-  handleSwitchValue,
+  onSwitchValue: handleSwitchValue,
   customClassNames,
+  transitionClassNames,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -36,10 +38,15 @@ export const Switch: FC<SwitchProps> = ({
     customClassNames,
   );
 
+  const backgroundTransitionClassNames = cn(
+    classes.backgroundTransition,
+    transitionClassNames,
+  );
+
   return (
     <div className={switchComponentClassNames} ref={containerRef}>
       <div
-        className={classes.backgroundTransition}
+        className={backgroundTransitionClassNames}
         style={backgroundTransitionProperties}
       />
       {options.map((option) => (

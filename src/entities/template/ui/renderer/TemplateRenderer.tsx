@@ -1,16 +1,16 @@
 import { FC } from 'react';
-import { BuildType } from '@shared/types';
+import { CodebaseType } from '@shared/types';
 import { Renderer } from '@shared/components';
 
 type TemplateRendererProps = {
-  buildTemplate: Omit<BuildType, 'id'>;
+  codebaseTemplate: Omit<CodebaseType, 'id'>;
   customClassNames?: string;
 };
 
 export const TemplateRenderer: FC<TemplateRendererProps> = ({
-  buildTemplate,
+  codebaseTemplate,
   customClassNames,
 }) => {
-  const { jsx, scss } = buildTemplate;
+  const { jsx, scss } = codebaseTemplate;
   return <Renderer jsx={jsx} scss={scss} customClassNames={customClassNames} />;
 };

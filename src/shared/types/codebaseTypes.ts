@@ -1,4 +1,4 @@
-export type BuildType = {
+export type CodebaseType = {
   id?: string;
   jsx: string;
   scss?: string;

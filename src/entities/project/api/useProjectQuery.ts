@@ -1,15 +1,21 @@
 import { ProjectService } from '@/shared/api';
 import { ProjectRequestType } from '@shared/types';
 import { useMutation } from '@tanstack/react-query';
+import { useProjectStore } from '../store';
 
 export const useProjectQuery = () => {
+  const { projectName } = useProjectStore();
+
   const mutation = useMutation<Blob, Error, ProjectRequestType>({
     mutationFn: ProjectService.downloadProjectQueryFn,
     onSuccess: (data) => {
       const url = window.URL.createObjectURL(new Blob([data]));
       const link = document.createElement('a');
       link.href = url;
-      link.setAttribute('download', 'project.zip');
+      link.setAttribute(
+        'download',
+        `${projectName.trim().replace(' ', '')}.zip`,
+      );
       document.body.appendChild(link);
       link.click();
 

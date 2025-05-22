@@ -1,4 +1,4 @@
-export type { BuildType } from './buildTypes';
+export type { CodebaseType } from './codebaseTypes';
 export type { CategoryType } from './categoryTypes';
 export type { TemplateType, TemplatesAtPrototypeType } from './templateTypes';
 export type { ProjectRequestType } from './projectTypes';

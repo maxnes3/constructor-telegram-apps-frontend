@@ -1,1 +1,1 @@
-export { TemplateDraggable, TemplatesDraggableList } from './ui';
+export { TemplatesDraggableList } from './ui';

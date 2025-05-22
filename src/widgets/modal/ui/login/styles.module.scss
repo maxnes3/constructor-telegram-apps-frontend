@@ -1,0 +1,17 @@
+.modalLogin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+
+  .input {
+    font-size: 18px;
+    border-radius: 12px;
+  }
+
+  .confirmButton {
+    font-size: 18px;
+    border-radius: 12px;
+    font-weight: 600;
+  }
+}

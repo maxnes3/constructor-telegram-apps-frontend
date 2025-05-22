@@ -1,4 +1,12 @@
 @use "@shared/styles/adaptive" as adaptive;
+@use "@shared/styles/complex" as complex;
+
+.templateItem {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
 
 .templateDraggableContainer {
   display: inline-flex;
@@ -23,28 +31,27 @@
   .templateDraggableRenderer {
     position: relative;
     @include adaptive.mediaHeight("xxlarge") {
-      width: 256px;
-      max-height: 142px;
+      width: var(--template-width-xxlarge);
+      max-height: var(--template-heigth-xxlarge);
     }
 
     @include adaptive.mediaHeight("large", "xlarge") {
-      width: 224px;
-      max-height: 124px;
+      width: var(--template-width-large-xlarge);
+      max-height: var(--template-heigth-large-xlarge);
     }
   }
 
   .isFill {
     @include adaptive.mediaHeight("xxlarge") {
-      height: 142px;
+      height: var(--template-heigth-xxlarge);
     }
 
     @include adaptive.mediaHeight("large", "xlarge") {
-      height: 124px;
+      height: var(--template-heigth-large-xlarge);
     }
   }
 
   .templateDraggableTitle {
-    font-family: var(--jetbrainsmono-font);
     color: var(--white-text);
     font-weight: 600;
     text-align: center;
@@ -58,4 +65,9 @@
       font-size: 14px;
     }
   }
+}
+
+.isNotActive {
+  cursor: pointer;
+  transform: scale(0.85);
 }

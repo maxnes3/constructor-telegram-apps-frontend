@@ -1,0 +1,46 @@
+@use "@shared/styles/complex" as complex;
+
+.headerControll {
+  display: flex;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  align-items: center;
+  padding: 12px 18px;
+  justify-content: space-between;
+  @include complex.injectBlur();
+
+  .novatoolkit {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    color: var(--white-text);
+
+    .icon {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .signInButton {
+    border-radius: 12px;
+  }
+
+  .signUpButton {
+    border-radius: 12px;
+    border: 3px solid var(--white-text);
+
+    &:hover {
+      border-color: var(--active-text);
+    }
+  }
+}

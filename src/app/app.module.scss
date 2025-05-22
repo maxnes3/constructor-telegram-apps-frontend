@@ -3,12 +3,11 @@
 @use '@shared/styles/animations' as animations;
 
 body {
-  margin: 0;
-  padding: 0;
-
   @include variables.inject();
   @include fonts.inject();
   @include animations.inject();
-
+  margin: 0;
+  padding: 0;
   font-family: var(--jetbrainsmono-font);
+  background-color: var(--dark-background);
 }

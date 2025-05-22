@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  frontend:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: novatoolkit-frontend
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_URL=http://localhost:4200/api
+    volumes:
+      - .:/app
+      - /app/node_modules

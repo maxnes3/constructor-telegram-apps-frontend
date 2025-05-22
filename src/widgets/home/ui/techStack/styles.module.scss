@@ -1,0 +1,51 @@
+.homeTechStack {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .title {
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--white-text);
+  }
+
+  .stack {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+
+    .stackItem {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      color: var(--white-text);
+      transition: 0.3s all ease;
+
+      &:hover {
+        margin: 0 8px;
+
+        .icon {
+          width: 48px;
+          height: 48px;
+        }
+
+        .label {
+          display: block;
+        }
+      }
+
+      .icon {
+        width: 32px;
+        height: 32px;
+        transition: 0.3s all ease;
+      }
+
+      .label {
+        display: none;
+        transition: 0.3s all ease;
+      }
+    }
+  }
+}

@@ -1,3 +1,4 @@
 export { useTemplatesQuery } from './api';
-export { useTemplatesListBehavior } from './model';
+export { DEFAULT_TEMPLATE_LIST_OFFSET } from './const';
+export { useTemplatesList, useTemplateControll } from './model';
 export { TemplateRenderer } from './ui';

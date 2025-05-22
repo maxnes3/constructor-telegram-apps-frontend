@@ -1,0 +1,61 @@
+@use "@shared/styles/adaptive" as adaptive;
+
+.modalTemplateControll {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.templateInEditModeContainer {
+  display: inline-flex;
+  flex-direction: column;
+  border: 3px dashed var(--white-text);
+  border-radius: 12px;
+  padding: 12px;
+  gap: 8px;
+
+  .templateInEditModeRenderer {
+    position: relative;
+    @include adaptive.mediaHeight("xxlarge") {
+      width: var(--template-width-xxlarge);
+      max-height: var(--template-heigth-xxlarge);
+    }
+
+    @include adaptive.mediaHeight("large", "xlarge") {
+      width: var(--template-width-large-xlarge);
+      max-height: var(--template-heigth-large-xlarge);
+    }
+  }
+
+  .isFill {
+    @include adaptive.mediaHeight("xxlarge") {
+      height: var(--template-heigth-xxlarge);
+    }
+
+    @include adaptive.mediaHeight("large", "xlarge") {
+      height: var(--template-heigth-large-xlarge);
+    }
+  }
+
+  .title {
+    color: var(--white-text);
+    font-weight: 600;
+    text-align: center;
+  }
+}
+
+.controllButtonsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .controllButton {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 12px;
+    font-size: 20px;
+    font-weight: 600;
+    gap: 8px;
+  }
+}

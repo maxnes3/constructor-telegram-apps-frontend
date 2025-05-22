@@ -53,7 +53,7 @@ export const ProjectSwitchModePanel = () => {
         <Switch
           current={projectMode}
           options={projectModeOptions}
-          handleSwitchValue={handleSwitchMode}
+          onSwitchValue={handleSwitchMode}
         />
       </div>
     </div>

@@ -1,0 +1,1 @@
+export { HomeTechStack } from './HomeTechStack';

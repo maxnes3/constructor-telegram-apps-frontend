@@ -1,0 +1,15 @@
+.notFoundErrorCode {
+  text-align: center;
+  color: var(--white-text);
+
+  .code {
+    font-weight: 600;
+    font-size: 64px;
+    margin: 24px;
+  }
+
+  .description {
+    font-weight: 600;
+    font-size: 24px;
+  }
+}

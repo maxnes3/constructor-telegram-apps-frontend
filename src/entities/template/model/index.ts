@@ -1,1 +1,2 @@
-export { useTemplatesListBehavior } from './useTemplatesListBehavior';
+export { useTemplatesList } from './useTemplatesList';
+export { useTemplateControll } from './useTemplateControll';

@@ -1,9 +1,7 @@
-import { TemplateRenderer } from '@/entities/template';
-import { FC, useState } from 'react';
+import { TemplateRenderer, useTemplateControll } from '@/entities/template';
+import { FC } from 'react';
 import { TemplateType } from '@/shared/types';
-import { Button } from '@/shared/components';
-import { CrossIcon } from '@/shared/assets/icons';
-import { useScreensAtProject } from '@/entities/screen';
+import { ModalEnum, useModalContext } from '@/shared/components/modal';
 import classes from './styles.module.scss';
 import cn from 'classnames';
 
@@ -14,18 +12,12 @@ type PrototypeLayoutTemplateProps = {
 export const PrototypeLayoutTemplate: FC<PrototypeLayoutTemplateProps> = ({
   template,
 }) => {
-  const [isActive, setIsActive] = useState<boolean>(false);
-  const { removeTemplateFromScreen } = useScreensAtProject();
+  const { changeTemplateInEditMode } = useTemplateControll();
+  const { open } = useModalContext();
 
-  const handleCollapse = () => {
-    setIsActive((prev) => !prev);
-  };
-
-  const handleRemove = () => {
-    removeTemplateFromScreen({
-      removedId: template.id,
-      positionBehaviour: template.positionBehaviour,
-    });
+  const handleClick = () => {
+    changeTemplateInEditMode(template);
+    open(ModalEnum.TEMPLATE_CONTROLL);
   };
 
   const prototypeLayoutTemplateClassNames = cn(
@@ -33,30 +25,16 @@ export const PrototypeLayoutTemplate: FC<PrototypeLayoutTemplateProps> = ({
     classes[template.positionBehaviour],
   );
 
-  const collapseButtonContainer = isActive && (
-    <div className={classes.prototypeLayoutTemplateButtons}>
-      <span className={classes.title}>{template.name}</span>
-      <Button
-        mode="active"
-        onClick={handleRemove}
-        customClassNames={classes.button}
-      >
-        <CrossIcon className={classes.icon} />
-        <span>Remove</span>
-      </Button>
-    </div>
-  );
-
   return (
     <div
       className={classes.prototypeLayoutTemplateContainer}
-      onClick={handleCollapse}
+      onClick={handleClick}
     >
       <TemplateRenderer
-        buildTemplate={template.demo}
+        codebaseTemplate={template.develop}
         customClassNames={prototypeLayoutTemplateClassNames}
       />
-      {collapseButtonContainer}
+      <span className={classes.title}>{template.name}</span>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import { RoutesPath } from '@shared/types';
 import { ConstructorPage } from '@pages/constructor';
 import { HomePage } from '@pages/home';
+import { NotFoundPage } from '@/pages/notFound';
 
 export const routes = [
   {
@@ -10,5 +11,9 @@ export const routes = [
   {
     path: RoutesPath.CONSTRUCTOR,
     element: <ConstructorPage />,
+  },
+  {
+    path: '*',
+    element: <NotFoundPage />,
   },
 ];

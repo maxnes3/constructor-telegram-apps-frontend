@@ -1,12 +1,12 @@
 import { FC } from 'react';
-import { BuildType } from '@shared/types';
+import { CodebaseType } from '@shared/types';
 import { JSXRenderModule } from '../jsx';
 import { SCSSRulesModule } from '../scss';
 import { BaseComponentsProps } from '@/shared/components/type';
 import classes from './styles.module.scss';
 import cn from 'classnames';
 
-type JSXRendererProps = {} & BaseComponentsProps & Omit<BuildType, 'id'>;
+type JSXRendererProps = {} & BaseComponentsProps & Omit<CodebaseType, 'id'>;
 
 export const Renderer: FC<JSXRendererProps> = ({
   jsx,
