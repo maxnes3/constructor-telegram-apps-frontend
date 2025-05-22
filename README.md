@@ -3,9 +3,9 @@
 
 Run project:
 ```
-npm run dev
+npm run start:docker
 ```
 or
 ```
-yarn dev
+npm run dev
 ```
