@@ -2,19 +2,24 @@ import {
   ModalEnum,
   ModalLayout,
   useModalContext,
-} from '@/shared/components/modal';
-import { Button, Input } from '@/shared/components';
-import classes from './styles.module.scss';
+  Button,
+  Input,
+} from '@/shared/components';
 import { useState } from 'react';
+import { useAuthQuery } from '@/entities/auth';
+import { AuthRequestType } from '@/shared/types';
+import { NovatoolkitIcon } from '@/shared/assets/icons';
+import classes from './styles.module.scss';
 
-export const ModalRegister = () => {
+export const ModalSignUp = () => {
   const { open, close } = useModalContext();
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [repeatPassword, setRepeatPassword] = useState<string>('');
+  const { signUp } = useAuthQuery();
 
   const handleBack = () => {
-    open(ModalEnum.LOGIN);
+    open(ModalEnum.SIGNIN);
   };
 
   const handleClose = () => {
@@ -33,12 +38,27 @@ export const ModalRegister = () => {
     setRepeatPassword(newValue);
   };
 
+  const handleConfirm = async () => {
+    if (password !== repeatPassword) {
+      return;
+    }
+    await signUp({ email, password } as AuthRequestType);
+    handleClose();
+  };
+
+  const signUpTitle = (
+    <span className={classes.title}>
+      <NovatoolkitIcon className={classes.icon} />
+      Sign Up
+    </span>
+  );
+
   return (
     <ModalLayout
-      contentClassNames={classes.modalRegister}
       onBack={handleBack}
       onClose={handleClose}
-      title="Sign Up"
+      title={signUpTitle}
+      contentClassNames={classes.modalSignUp}
     >
       <Input
         value={email}
@@ -60,7 +80,11 @@ export const ModalRegister = () => {
         onChange={handleRepeatPasswordChange}
         customClassNames={classes.input}
       />
-      <Button mode="active" customClassNames={classes.confirmButton}>
+      <Button
+        mode="active"
+        onClick={handleConfirm}
+        customClassNames={classes.confirmButton}
+      >
         Confirm
       </Button>
     </ModalLayout>

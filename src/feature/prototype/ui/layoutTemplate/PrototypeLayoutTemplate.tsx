@@ -5,13 +5,11 @@ import { ModalEnum, useModalContext } from '@/shared/components/modal';
 import classes from './styles.module.scss';
 import cn from 'classnames';
 
-type PrototypeLayoutTemplateProps = {
+type Props = {
   template: TemplateType;
 };
 
-export const PrototypeLayoutTemplate: FC<PrototypeLayoutTemplateProps> = ({
-  template,
-}) => {
+export const PrototypeLayoutTemplate: FC<Props> = ({ template }) => {
   const { changeTemplateInEditMode } = useTemplateControll();
   const { open } = useModalContext();
 

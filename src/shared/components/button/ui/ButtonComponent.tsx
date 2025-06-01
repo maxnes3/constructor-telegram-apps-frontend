@@ -4,14 +4,14 @@ import { BaseComponentsProps } from '@shared/components/type';
 import classes from './styles.module.scss';
 import cn from 'classnames';
 
-type ButtonProps = {
+type Props = {
   mode?: 'default' | 'active' | 'transparent';
   type?: 'submit' | 'button';
   onClick?: VoidFunction;
 } & LayoutRouteProps &
   BaseComponentsProps;
 
-export const Button: FC<ButtonProps> = ({
+export const Button: FC<Props> = ({
   mode = 'default',
   type = 'button',
   onClick,

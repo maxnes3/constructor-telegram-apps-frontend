@@ -27,6 +27,8 @@ import TypescriptIcon from './typescript.svg';
 import ViteJsIcon from './vitejs.svg';
 import GithubIcon from './github.svg';
 import NovatoolkitIcon from './novatoolkit.svg';
+import AccountIcon from './account.svg';
+import ControllIcon from './controll.svg';
 
 export {
   ArrowIcon,
@@ -58,4 +60,6 @@ export {
   ViteJsIcon,
   GithubIcon,
   NovatoolkitIcon,
+  AccountIcon,
+  ControllIcon,
 };

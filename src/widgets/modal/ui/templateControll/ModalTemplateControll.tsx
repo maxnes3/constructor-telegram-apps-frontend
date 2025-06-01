@@ -3,12 +3,12 @@ import {
   ModalEnum,
   ModalLayout,
   useModalContext,
-} from '@/shared/components/modal';
-import classes from './styles.module.scss';
-import cn from 'classnames';
-import { Button } from '@/shared/components';
+  Button,
+} from '@/shared/components';
 import { useScreensAtProject } from '@/entities/screen';
 import { CrossIcon, EditIcon } from '@/shared/assets/icons';
+import classes from './styles.module.scss';
+import cn from 'classnames';
 
 export const ModalTemplateControll = () => {
   const { templateInEditMode, changeTemplateInEditMode } =

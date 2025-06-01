@@ -1,18 +1,22 @@
-import { Button } from '@/shared/components';
-import { ModalEnum, useModalContext } from '@/shared/components/modal';
-import { NovatoolkitIcon } from '@/shared/assets/icons';
+import { ModalEnum, useModalContext, Button } from '@/shared/components';
+import { AccountIcon } from '@/shared/assets/icons';
 import { DOCS_API_URL } from '@/shared/url';
+import { useAuthQuery } from '@/entities/auth';
 import classes from './styles.module.scss';
+import { Logo } from '@/shared/components/logo';
 
 export const HeaderControll = () => {
   const { open } = useModalContext();
+  const { account, isAuthenticated } = useAuthQuery();
+
+  console.log(account);
 
   const handleSignInButton = () => {
-    open(ModalEnum.LOGIN);
+    open(ModalEnum.SIGNIN);
   };
 
   const handleSignUpButton = () => {
-    open(ModalEnum.REGISTER);
+    open(ModalEnum.SIGNUP);
   };
 
   const handleOpenApiDocs = () => {
@@ -21,24 +25,31 @@ export const HeaderControll = () => {
 
   return (
     <header className={classes.headerControll}>
-      <h3 className={classes.novatoolkit}>
-        <NovatoolkitIcon className={classes.icon} /> Novatoolkit
-      </h3>
+      <Logo />
       <div className={classes.buttons}>
-        <Button
-          mode="active"
-          onClick={handleSignInButton}
-          customClassNames={classes.signInButton}
-        >
-          Sign In
-        </Button>
-        <Button
-          mode="transparent"
-          onClick={handleSignUpButton}
-          customClassNames={classes.signUpButton}
-        >
-          Sign Up
-        </Button>
+        {isAuthenticated ? (
+          <Button mode="transparent" customClassNames={classes.accountButton}>
+            <AccountIcon />
+            <span>{account?.email}</span>
+          </Button>
+        ) : (
+          <>
+            <Button
+              mode="active"
+              onClick={handleSignInButton}
+              customClassNames={classes.signInButton}
+            >
+              Sign In
+            </Button>
+            <Button
+              mode="transparent"
+              onClick={handleSignUpButton}
+              customClassNames={classes.signUpButton}
+            >
+              Sign Up
+            </Button>
+          </>
+        )}
         <Button mode="transparent" onClick={handleOpenApiDocs}>
           Api Docs
         </Button>

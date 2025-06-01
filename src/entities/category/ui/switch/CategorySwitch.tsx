@@ -2,26 +2,19 @@ import { useEffect } from 'react';
 import { Button } from '@shared/components';
 import { useCategoriesQuery } from '@entities/category/api';
 import { useCurrentCategory } from '@entities/category/model';
-import {
-  DEFAULT_TEMPLATE_LIST_OFFSET,
-  useTemplatesList,
-} from '@/entities/template';
 import classes from './styles.module.scss';
 
 export const CategorySwitch = () => {
   const { categories, getAllCategories } = useCategoriesQuery();
   const { currentCategory, switchCurrentCategory } = useCurrentCategory();
-  const { switchActiveTemplateOnPanel, changeTemplateListOffset } =
-    useTemplatesList();
 
   const handleCategoryClick = (newCategory: string | null) => {
-    switchActiveTemplateOnPanel(null);
     switchCurrentCategory(newCategory);
-    changeTemplateListOffset(DEFAULT_TEMPLATE_LIST_OFFSET);
   };
 
   useEffect(() => {
     getAllCategories();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

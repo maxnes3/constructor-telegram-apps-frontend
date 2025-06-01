@@ -1,6 +1,8 @@
-export { Input } from './input';
-export { Button } from './button';
-export { Renderer } from './renderer';
-export { Switch, type SwitchOptionType } from './switch';
-export { Code } from './code';
-export { Editor } from './editor';
+export * from './input';
+export * from './button';
+export * from './renderer';
+export * from './switch';
+export * from './code';
+export * from './editor';
+export * from './modal';
+export * from './border';

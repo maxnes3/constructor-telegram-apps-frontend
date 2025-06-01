@@ -5,12 +5,12 @@ import {
   CloudIcon,
   LinuxIcon,
 } from '@/shared/assets/icons';
-import { Button } from '@/shared/components';
 import {
   ModalLayout,
   ModalEnum,
   useModalContext,
-} from '@shared/components/modal';
+  Button,
+} from '@shared/components';
 import { BrowserOSEnum } from '@/shared/types';
 import classes from './styles.module.scss';
 
@@ -19,7 +19,7 @@ export const ModalProjectExport = () => {
   const { open, close } = useModalContext();
 
   const handleSaveAtServer = () => {
-    open(ModalEnum.LOGIN);
+    open(ModalEnum.SIGNIN);
   };
 
   const handleOpenProjectDownloadModal = (osName: BrowserOSEnum) => {

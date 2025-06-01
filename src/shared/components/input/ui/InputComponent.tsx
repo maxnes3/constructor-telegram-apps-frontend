@@ -3,7 +3,7 @@ import { BaseComponentsProps } from '@shared/components/type';
 import classes from './styles.module.scss';
 import cn from 'classnames';
 
-type InputProps = {
+type Props = {
   value: string;
   placeholder: string;
   onChange: (newValue: string) => void;
@@ -11,7 +11,7 @@ type InputProps = {
   isError?: boolean;
 } & BaseComponentsProps;
 
-export const Input: FC<InputProps> = ({
+export const Input: FC<Props> = ({
   value,
   placeholder,
   onChange,

@@ -1,0 +1,13 @@
+.borderComponent {
+  display: inline-block;
+  background-color: var(--white-background);
+  border-radius: 24px;
+  padding: 4px;
+
+  .borderComponentContent {
+    background-color: var(--dark-background);
+    box-shadow: var(--component-shadow);
+    border-radius: 20px;
+    padding: 4px;
+  }
+}

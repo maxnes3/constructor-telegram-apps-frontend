@@ -3,15 +3,12 @@ import { Button } from '@/shared/components';
 import { FC } from 'react';
 import classes from './styles.module.scss';
 
-interface TemplatePickButtonProps {
+interface Props {
   iconType: 'prev' | 'next';
   onClick: VoidFunction;
 }
 
-export const TemplatePickButton: FC<TemplatePickButtonProps> = ({
-  iconType,
-  onClick,
-}) => {
+export const TemplatePickButton: FC<Props> = ({ iconType, onClick }) => {
   const icon =
     iconType === 'next' ? (
       <NextIcon className={classes.icon} />

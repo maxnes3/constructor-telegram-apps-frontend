@@ -1,0 +1,22 @@
+.title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  .icon {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+.modalProjectControll {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  .input, .button, .transition {
+    border-radius: 12px;
+  }
+}

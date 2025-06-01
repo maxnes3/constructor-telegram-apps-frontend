@@ -2,24 +2,27 @@ import {
   ModalEnum,
   ModalLayout,
   useModalContext,
-} from '@/shared/components/modal';
-import { Button, Input } from '@/shared/components';
+  Button,
+  Input,
+} from '@/shared/components';
 import { useState } from 'react';
+import { useAuthQuery } from '@/entities/auth';
+import { AuthRequestType } from '@/shared/types';
 import classes from './styles.module.scss';
+import { NovatoolkitIcon } from '@/shared/assets/icons';
 
-export const ModalLogin = () => {
+export const ModalSignIn = () => {
   const { open, close } = useModalContext();
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const { signIn } = useAuthQuery();
 
   const handleClose = () => {
     close();
   };
 
-  const handleConfirm = () => {};
-
   const handleOpenRegisterModal = () => {
-    open(ModalEnum.REGISTER);
+    open(ModalEnum.SIGNUP);
   };
 
   const handleEmailChange = (newValue: string) => {
@@ -30,11 +33,23 @@ export const ModalLogin = () => {
     setPassword(newValue);
   };
 
+  const handleConfirm = async () => {
+    await signIn({ email, password } as AuthRequestType);
+    handleClose();
+  };
+
+  const signInTitle = (
+    <span className={classes.title}>
+      <NovatoolkitIcon className={classes.icon} />
+      Sign In
+    </span>
+  );
+
   return (
     <ModalLayout
       onClose={handleClose}
-      title="Sign In"
-      contentClassNames={classes.modalLogin}
+      title={signInTitle}
+      contentClassNames={classes.modalSignIn}
     >
       <Input
         value={email}

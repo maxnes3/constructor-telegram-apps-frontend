@@ -7,5 +7,5 @@ npm run start:docker
 ```
 or
 ```
-npm run dev
+docker compose up
 ```

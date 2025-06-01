@@ -4,14 +4,14 @@ import { BaseComponentsProps } from '../../type';
 import cn from 'classnames';
 import classes from './styles.module.scss';
 
-type SwitchProps = {
+type Props = {
   options: SwitchOptionType[];
   current: string;
   onSwitchValue: (newValue: string) => void;
   transitionClassNames?: string;
 } & BaseComponentsProps;
 
-export const Switch: FC<SwitchProps> = ({
+export const Switch: FC<Props> = ({
   options,
   current,
   onSwitchValue: handleSwitchValue,

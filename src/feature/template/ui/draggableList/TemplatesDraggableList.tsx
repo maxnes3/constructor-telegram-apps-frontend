@@ -1,19 +1,39 @@
 import { TemplateDraggable } from '@feature/template/ui';
-import { CSSProperties, useEffect, useMemo } from 'react';
+import { CSSProperties, useEffect, useMemo, useState } from 'react';
 import { useTemplatesList, useTemplatesQuery } from '@entities/template';
 import { useCurrentCategory } from '@entities/category';
 import classes from './styles.module.scss';
 
+const getOffset = ({
+  currentTemplateIndex,
+  listLength,
+}: {
+  currentTemplateIndex: number;
+  listLength: number;
+}) => {
+  if (listLength < 2) return 0;
+  if (currentTemplateIndex === 0) return 1;
+  if (currentTemplateIndex === listLength - 1) return -1;
+  return 0;
+};
+
 export const TemplatesDraggableList = () => {
+  const [currentTemplate, setCurrentTemplate] = useState<string | null>(null);
   const { currentCategory } = useCurrentCategory();
   const { templates, getAllTemplates } = useTemplatesQuery();
-  const { showTemplatesOnPanel, templateListOffset } = useTemplatesList();
+  const { showTemplatesOnPanel } = useTemplatesList();
 
-  const templatesByCategory = useMemo(
-    () =>
-      templates.filter((template) => template.categoryId === currentCategory),
-    [currentCategory, templates],
-  );
+  const handleChangeCurrentTemplate = (templateId: string) => {
+    setCurrentTemplate(templateId);
+  };
+
+  const templatesByCategory = useMemo(() => {
+    const result = templates.filter(
+      (template) => template.categoryId === currentCategory,
+    );
+    setCurrentTemplate(result[0]?.id ?? null);
+    return result;
+  }, [currentCategory, templates]);
 
   const templatesByCategoryRender = templatesByCategory.map(
     (template, index) => {
@@ -25,17 +45,20 @@ export const TemplatesDraggableList = () => {
           template={template}
           prev={prev}
           next={next}
-          indexInTemplatesList={index}
+          isActive={template.id === currentTemplate}
+          onChangeCurrentTemplate={handleChangeCurrentTemplate}
         />
       );
     },
   );
 
   const templatesListVariables = {
-    '--offset-prev': templateListOffset.prev,
-    '--offset-index': templateListOffset.index,
-    '--offset-next': templateListOffset.next,
-    '--is-negative': templateListOffset.index > 0 ? -1 : 1,
+    '--is-offset': getOffset({
+      currentTemplateIndex: templatesByCategory.findIndex(
+        (template) => template.id === currentTemplate,
+      ),
+      listLength: templatesByCategory.length,
+    }),
   } as CSSProperties;
 
   useEffect(() => {

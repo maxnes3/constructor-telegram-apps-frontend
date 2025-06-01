@@ -6,13 +6,9 @@ import { BaseComponentsProps } from '@/shared/components/type';
 import classes from './styles.module.scss';
 import cn from 'classnames';
 
-type JSXRendererProps = {} & BaseComponentsProps & Omit<CodebaseType, 'id'>;
+type Props = {} & BaseComponentsProps & Omit<CodebaseType, 'id'>;
 
-export const Renderer: FC<JSXRendererProps> = ({
-  jsx,
-  scss,
-  customClassNames,
-}) => {
+export const Renderer: FC<Props> = ({ jsx, scss, customClassNames }) => {
   const rendererClassNames = cn(classes.rendererContainer, customClassNames);
 
   return (

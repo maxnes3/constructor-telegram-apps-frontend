@@ -1,27 +1,29 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useState } from 'react';
 import Draggable, { DraggableEvent } from 'react-draggable';
 import { ProjectModeEnum, TemplateType } from '@shared/types';
 import { getIsInsidePrototype } from '@feature/template/model';
 import { usePrototypeAreaBehavior } from '@entities/prototype';
-import { TemplateRenderer, useTemplatesList } from '@entities/template';
+import { TemplateRenderer } from '@entities/template';
 import { useProjectMode } from '@entities/project';
 import { useScreensAtProject } from '@/entities/screen';
+import { TemplatePickButton } from '../pickButton';
 import classes from './styles.module.scss';
 import cn from 'classnames';
-import { TemplatePickButton } from '../pickButton';
 
-type TemplateDraggableProps = {
+type Props = {
   template: TemplateType;
   prev: string | null;
   next: string | null;
-  indexInTemplatesList: number;
+  isActive: boolean;
+  onChangeCurrentTemplate: (templateId: string) => void;
 };
 
-export const TemplateDraggable: FC<TemplateDraggableProps> = ({
+export const TemplateDraggable: FC<Props> = ({
   template,
   prev,
   next,
-  indexInTemplatesList,
+  isActive,
+  onChangeCurrentTemplate,
 }) => {
   const { id, name, develop, positionBehaviour } = template;
   const [templatePosition, setTemplatePosition] = useState({ x: 0, y: 0 });
@@ -31,13 +33,7 @@ export const TemplateDraggable: FC<TemplateDraggableProps> = ({
   const { checkTemplateAtScreenById, addTemplateAtScreen } =
     useScreensAtProject();
   const { switchProjectMode } = useProjectMode();
-  const {
-    activeTemplateOnPanel,
-    switchActiveTemplateOnPanel,
-    changeTemplateListOffset,
-  } = useTemplatesList();
 
-  const isActive = activeTemplateOnPanel === id;
   const isAlreadyUsing = checkTemplateAtScreenById(id);
 
   const handleOnDrag = (e: DraggableEvent) => {
@@ -63,49 +59,25 @@ export const TemplateDraggable: FC<TemplateDraggableProps> = ({
   };
 
   const handlePickPrevius = () => {
-    switchActiveTemplateOnPanel(prev);
+    if (!prev) return;
+    onChangeCurrentTemplate(prev);
   };
 
   const handlePickNext = () => {
-    switchActiveTemplateOnPanel(next);
+    if (!next) return;
+    onChangeCurrentTemplate(next);
   };
 
   const handleClick = () => {
-    switchActiveTemplateOnPanel(id);
+    onChangeCurrentTemplate(template.id);
   };
-
-  useEffect(() => {
-    const initActiveTemplateOnPanel = () => {
-      if (prev === null && activeTemplateOnPanel === null && next !== null) {
-        switchActiveTemplateOnPanel(id);
-      }
-    };
-
-    initActiveTemplateOnPanel();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activeTemplateOnPanel, id, next, prev]);
-
-  useEffect(() => {
-    const calculateOffset = () => {
-      if (isActive) {
-        changeTemplateListOffset({
-          prev: prev ? 1 : 0,
-          index: indexInTemplatesList,
-          next: next ? 1 : 0,
-        });
-      }
-    };
-
-    calculateOffset();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [indexInTemplatesList, isActive]);
 
   const templateRendererClassNames = cn(
     classes.templateDraggableRenderer,
     classes[positionBehaviour],
   );
 
-  if (!isActive && activeTemplateOnPanel) {
+  if (!isActive) {
     return (
       <li
         className={cn(classes.templateDraggableContainer, classes.isNotActive)}

@@ -5,6 +5,7 @@ type createHandleQueryFnProps<T> = {
   setError: Dispatch<SetStateAction<Error | null>>;
   setData: (data: T) => void;
   queryFn: () => Promise<T>;
+  data?: T;
 };
 
 export const createHandleQueryFn = <T>({

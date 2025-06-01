@@ -3,11 +3,13 @@ import {
   ModalEnum,
   ModalLayout,
   useModalContext,
-} from '@/shared/components/modal';
-import classes from './styles.module.scss';
-import { Editor, Switch, SwitchOptionType } from '@/shared/components';
+  Editor,
+  Switch,
+  SwitchOptionType,
+} from '@/shared/components';
 import { useState } from 'react';
 import { CssIcon, ReactIcon } from '@/shared/assets/icons';
+import classes from './styles.module.scss';
 
 export const ModalEditTemplate = () => {
   const { templateInEditMode } = useTemplateControll();

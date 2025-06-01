@@ -1,0 +1,13 @@
+.logo {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: var(--white-text);
+
+  .favicon {
+    width: 32px;
+    height: 32px;
+  }
+}

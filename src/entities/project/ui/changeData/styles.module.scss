@@ -1,0 +1,28 @@
+@use "@shared/styles/adaptive" as adaptive;
+
+.projectChangeData {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+
+  @include adaptive.mediaWidth("mobile", "tablet") {
+    flex-direction: column;
+  }
+}
+
+.exportButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+
+  @include adaptive.mediaWidth("mobile", "tablet") {
+    width: 100%;
+  }
+
+  .icon {
+    width: 18px;
+    height: 18px;
+  }
+}

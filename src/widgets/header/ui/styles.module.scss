@@ -11,23 +11,17 @@
   justify-content: space-between;
   @include complex.injectBlur();
 
-  .novatoolkit {
-    display: inline-flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 8px;
-    margin: 0;
-    color: var(--white-text);
-
-    .icon {
-      width: 32px;
-      height: 32px;
-    }
-  }
-
   .buttons {
     display: flex;
     flex-direction: row;
+    gap: 8px;
+  }
+
+  .accountButton {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 0;
     gap: 8px;
   }
 

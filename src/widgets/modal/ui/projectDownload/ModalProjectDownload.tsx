@@ -4,7 +4,9 @@ import {
   ModalEnum,
   ModalLayout,
   useModalContext,
-} from '@/shared/components/modal';
+  Button,
+  Code,
+} from '@/shared/components';
 import { ReactNode, useMemo } from 'react';
 import { BrowserOSEnum } from '@/shared/types';
 import {
@@ -16,8 +18,6 @@ import {
 } from '@shared/assets/icons';
 import classes from './styles.module.scss';
 import cn from 'classnames';
-import { Button } from '@/shared/components';
-import { Code } from '@/shared/components';
 
 const WINDOWS_INSTRUCTIONS: ReactNode = (
   <>

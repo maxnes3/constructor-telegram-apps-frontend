@@ -1,7 +1,13 @@
+@use "@shared/styles/adaptive" as adaptive;
+
 .projectControll {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 12px 12px 0;
+
+  @include adaptive.mediaWidth("mobile", "tablet") {
+    justify-content: center;
+  }
 }

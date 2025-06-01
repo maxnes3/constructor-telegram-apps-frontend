@@ -5,13 +5,13 @@ import { PrototypeLayoutTemplate } from '../layoutTemplate';
 import classes from './styles.module.scss';
 import cn from 'classnames';
 
-type PrototypeLayoutSlotProps = {
+type Props = {
   slotPositionBehaviour: string;
   templates: TemplateType[];
   customClassNames?: string;
 };
 
-export const PrototypeLayoutSlot: FC<PrototypeLayoutSlotProps> = ({
+export const PrototypeLayoutSlot: FC<Props> = ({
   slotPositionBehaviour,
   templates,
   customClassNames,

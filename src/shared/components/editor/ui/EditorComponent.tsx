@@ -7,14 +7,14 @@ import 'prismjs/components/prism-javascript';
 import 'prismjs/components/prism-css';
 import 'prismjs/themes/prism-okaidia.css';
 
-type EditorComponentProps = {
+type Props = {
   code: string;
   language: 'jsx' | 'css';
   onValueChange: (value: string) => void;
   textareaClassNames?: string;
 } & BaseComponentsProps;
 
-export const EditorComponent: FC<EditorComponentProps> = ({
+export const EditorComponent: FC<Props> = ({
   code,
   language,
   onValueChange: handleValueChange,

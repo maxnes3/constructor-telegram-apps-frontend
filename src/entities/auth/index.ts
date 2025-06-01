@@ -1,0 +1,1 @@
+export { useAuthQuery } from './api';

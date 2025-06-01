@@ -3,10 +3,11 @@ import { createContext, useContext } from 'react';
 export enum ModalEnum {
   PROJECT_EXPORT = 'PROJECT_EXPORT',
   PROJECT_DOWNLOAD = 'PROJECT_DOWNLOAD',
+  PROJECT_CONTROLL = 'PROJECT_CONTROLL',
   TEMPLATE_CONTROLL = 'TEMPLATE_CONTROLL',
   EDIT_TEMPLATE = 'EDIT_TEMPLATE',
-  LOGIN = 'LOGIN',
-  REGISTER = 'REGISTER',
+  SIGNIN = 'SIGNIN',
+  SIGNUP = 'SIGNUP',
 }
 
 interface Context {
