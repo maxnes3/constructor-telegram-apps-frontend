@@ -1,1 +1,0 @@
-export { ModalEditTemplate } from './ModalEditTemplate';

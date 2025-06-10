@@ -10,6 +10,20 @@ export const useAuthQuery = () => {
 
   const isAuthenticated = account !== null;
 
+  const getAuthUser = async () => {
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      const response = await AuthService.getAuthUserQueryFn();
+      setAccount(response);
+    } catch (err) {
+      setError(err instanceof Error ? err : new Error('An error occurred'));
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   const signIn = async (data: AuthRequestType) => {
     setIsLoading(true);
     setError(null);
@@ -41,6 +55,7 @@ export const useAuthQuery = () => {
   return {
     account,
     isAuthenticated,
+    getAuthUser,
     signIn,
     signUp,
     isLoading,

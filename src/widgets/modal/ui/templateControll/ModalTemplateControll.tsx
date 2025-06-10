@@ -6,7 +6,7 @@ import {
   Button,
 } from '@/shared/components';
 import { useScreensAtProject } from '@/entities/screen';
-import { CrossIcon, EditIcon } from '@/shared/assets/icons';
+import { CodeIcon, CrossIcon } from '@/shared/assets/icons';
 import classes from './styles.module.scss';
 import cn from 'classnames';
 
@@ -26,8 +26,8 @@ export const ModalTemplateControll = () => {
     close();
   };
 
-  const handleEdit = () => {
-    open(ModalEnum.EDIT_TEMPLATE);
+  const handleOpenViewCode = () => {
+    open(ModalEnum.VIEW_CODE);
   };
 
   const handleRemove = () => {
@@ -56,18 +56,18 @@ export const ModalTemplateControll = () => {
       <div className={classes.controllButtonsContainer}>
         <Button
           mode="active"
-          onClick={handleEdit}
+          onClick={handleOpenViewCode}
           customClassNames={classes.controllButton}
         >
-          <EditIcon />
-          Edit Template
+          <CodeIcon className={classes.icon} />
+          View Code
         </Button>
         <Button
           mode="active"
           onClick={handleRemove}
           customClassNames={classes.controllButton}
         >
-          <CrossIcon />
+          <CrossIcon className={classes.icon} />
           Remove
         </Button>
       </div>

@@ -29,6 +29,7 @@ import GithubIcon from './github.svg';
 import NovatoolkitIcon from './novatoolkit.svg';
 import AccountIcon from './account.svg';
 import ControllIcon from './controll.svg';
+import CodeIcon from './code.svg';
 
 export {
   ArrowIcon,
@@ -62,4 +63,5 @@ export {
   NovatoolkitIcon,
   AccountIcon,
   ControllIcon,
+  CodeIcon,
 };

@@ -3,15 +3,15 @@ import {
   ModalEnum,
   ModalLayout,
   useModalContext,
-  Editor,
   Switch,
   SwitchOptionType,
+  Code,
 } from '@/shared/components';
 import { useState } from 'react';
 import { CssIcon, ReactIcon } from '@/shared/assets/icons';
 import classes from './styles.module.scss';
 
-export const ModalEditTemplate = () => {
+export const ModalViewCode = () => {
   const { templateInEditMode } = useTemplateControll();
   const [editProperty, setEditProperty] = useState<'jsx' | 'css'>('jsx');
   const { open, close } = useModalContext();
@@ -19,8 +19,8 @@ export const ModalEditTemplate = () => {
   const jsx = templateInEditMode?.running.jsx ?? '';
   const scss = templateInEditMode?.running.scss ?? '';
 
-  const [jsxCode, setJsxCode] = useState<typeof jsx>(jsx);
-  const [scssCode, setScssCode] = useState<typeof scss>(scss);
+  // const [jsxCode, setJsxCode] = useState<typeof jsx>(jsx);
+  // const [scssCode, setScssCode] = useState<typeof scss>(scss);
 
   const handleSwitchEditProperty = (newValue: string) => {
     if (newValue === 'jsx' || newValue === 'css') {
@@ -28,13 +28,13 @@ export const ModalEditTemplate = () => {
     }
   };
 
-  const handleJsxCodeChange = (value: string) => {
-    setJsxCode(value);
-  };
+  // const handleJsxCodeChange = (value: string) => {
+  //   setJsxCode(value);
+  // };
 
-  const handleScssCodeChange = (value: string) => {
-    setScssCode(value);
-  };
+  // const handleScssCodeChange = (value: string) => {
+  //   setScssCode(value);
+  // };
 
   const handleBack = () => {
     open(ModalEnum.TEMPLATE_CONTROLL);
@@ -80,22 +80,8 @@ export const ModalEditTemplate = () => {
         />
       </div>
       <div className={classes.editView}>
-        {editProperty === 'jsx' && (
-          <Editor
-            language="jsx"
-            code={jsxCode}
-            onValueChange={handleJsxCodeChange}
-            textareaClassNames={classes.textarea}
-          />
-        )}
-        {editProperty === 'css' && (
-          <Editor
-            language="css"
-            code={scssCode}
-            onValueChange={handleScssCodeChange}
-            textareaClassNames={classes.textarea}
-          />
-        )}
+        {editProperty === 'jsx' && <Code language="jsx" code={jsx} />}
+        {editProperty === 'css' && <Code language="css" code={scss} />}
       </div>
     </ModalLayout>
   );

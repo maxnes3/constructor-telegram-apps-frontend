@@ -4,6 +4,14 @@ import { serviceConfig } from '../configs';
 const BASE_URL = '/auth';
 
 export const AuthService = {
+  getAuthUserQueryFn: async () => {
+    try {
+      const response = await serviceConfig.get(BASE_URL);
+      return response.data;
+    } catch (error) {
+      throw new Error(`Failed to get auth user: ${error}`);
+    }
+  },
   signInQueryFn: async (data: AuthRequestType) => {
     try {
       const response = await serviceConfig.post(`${BASE_URL}/signin`, data);

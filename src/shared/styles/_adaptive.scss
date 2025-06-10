@@ -1,11 +1,18 @@
 $width-breakpoints: (
-  "mobile": 0,          // Мобильные >= 0px
-  "mobile-large": 480px, // Крупные мобильные 0px – 480px
-  "tablet": 768px,      // Планшеты 481px – 768px
-  "laptop": 1024px,     // Ноутбуки 769px – 1024px
-  "desktop": 1280px,    // Стандартные мониторы 1025px – 1280px
-  "wide": 1440px,       // Широкие экраны 1281px – 1440px
-  "ultra-wide": 1441px  // Очень широкие экраны ≥ 1441px
+  // Мобильные >= 0px
+  "mobile": 0,
+  // Крупные мобильные 0px – 480px
+  "mobile-large": 480px,
+  // Планшеты 481px – 768px
+  "tablet": 768px,
+  // Ноутбуки 769px – 1024px
+  "laptop": 1024px,
+  // Стандартные мониторы 1025px – 1280px
+  "desktop": 1280px,
+  // Широкие экраны 1281px – 1440px
+  "wide": 1440px,
+  // Очень широкие экраны ≥ 1441px,
+  "ultra-wide": 1441px
 );
 
 @mixin mediaWidth($from, $to: null) {
@@ -26,18 +33,23 @@ $width-breakpoints: (
 
     $max-width: map-get($width-breakpoints, $to);
 
-    @media (min-width: $min-width) and (max-width: $max-width) {
+    @media (min-width: $min-width) and (max-width: calc($max-width - 1px)) {
       @content;
     }
   }
 }
 
 $height-breakpoints: (
-  "small": 500px,      // ≤ 500px
-  "medium": 650px,     // 501px – 650px
-  "large": 800px,      // 651px – 800px
-  "xlarge": 900px,     // 801px – 900px
-  "xxlarge": 901px     // ≥ 901px
+  // ≤ 500px
+  "small": 500px,
+  // 501px – 650px
+  "medium": 650px,
+  // 651px – 800px
+  "large": 800px,
+  // 801px – 900px
+  "xlarge": 900px,
+  // ≥ 901px,
+  "xxlarge": 901px
 );
 
 @mixin mediaHeight($from, $to: null) {
@@ -58,7 +70,7 @@ $height-breakpoints: (
 
     $max-height: map-get($height-breakpoints, $to);
 
-    @media (min-height: $min-height) and (max-height: $max-height) {
+    @media (min-height: $min-height) and (max-height: calc($max-height - 1px)) {
       @content;
     }
   }

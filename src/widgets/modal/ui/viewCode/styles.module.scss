@@ -1,3 +1,5 @@
+@use "@shared/styles/adaptive" as adaptive;
+
 .title {
   display: inline-flex;
   flex-direction: row;
@@ -30,9 +32,22 @@
   .editView {
     border: 3px dashed var(--white-text);
     border-radius: 12px;
+    overflow: scroll;
 
-    .textarea {
-      overflow: scroll;
+    @include adaptive.mediaWidth("desktop", "wide") {
+      max-width: 1024px;
+    }
+
+    @include adaptive.mediaWidth("laptop", "desktop") {
+      max-width: 768px;
+    }
+
+    @include adaptive.mediaHeight("xlarge") {
+      max-height: 800px;
+    }
+
+    @include adaptive.mediaHeight("large", "xlarge") {
+      max-height: 650px;
     }
   }
 }
