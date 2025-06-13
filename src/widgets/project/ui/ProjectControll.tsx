@@ -5,6 +5,7 @@ import {
 } from '@feature/project';
 import { useMobile } from '@shared/hooks';
 import classes from './styles.module.scss';
+import { Logo } from '@/shared/components/logo';
 
 export const ProjectControll = () => {
   const isMobile = useMobile();
@@ -17,7 +18,10 @@ export const ProjectControll = () => {
           <ProjectSwitchModePanel />
         </>
       ) : (
-        <ProjectMobileControllButton />
+        <>
+          <Logo />
+          <ProjectMobileControllButton />
+        </>
       )}
     </div>
   );
